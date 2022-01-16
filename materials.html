@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Materials</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="materials_stylesheet.css">
+    </head>
+    <body>
+        <div class="menu">
+            <div class="menu-div" id="div1"><a class="menu-link" id="menu-link1" href="index.html">Entry page</a><img src="iconmonstr-arrow-37-48.png" class="menu-img" id="img1" onclick=""></div>
+            <div class="menu-div2" id="div2a"><a class="menu-link" id="menu-link2" href="spiral_wound_gaskets/spiralWoundGaskets.html">Spiral Wound gasket</a><img src="iconmonstr-arrow-37-48.png" class="menu-img" id="img2"></div>
+            <div class="menu-div3a"><a class="menu-link" id="menu-link3" href="spiral_wound_gaskets/SWG_LG11.html">LG 11</a></div>
+            <div class="menu-div3a"><a class="menu-link" id="menu-link3" href="spiral_wound_gaskets/SWG_LG11IR.html">LG 11 - IR</a></div>
+            <div class="menu-div3a"><a class="menu-link" id="menu-link3" href="spiral_wound_gaskets/SWG_LG13.html">LG 13</a></div>
+            <div class="menu-div3a"><a class="menu-link" id="menu-link3" href="spiral_wound_gaskets/SWG_LG13IR.html">LG 13 - IR</a></div>
+            <div class="menu-div3a"><a class="menu-link" id="menu-link3" href="spiral_wound_gaskets/SWG_LG14.html">LG 14</a></div>
+            <div class="menu-div2" id="div2b"><a class="menu-link" id="menu-link2" href="camprofile_gaskets/camprofileGaskets.html">Camprofile gaskets</a><img src="iconmonstr-arrow-37-48.png" class="menu-img" id="img3"></div>
+            <div class="menu-div3b"><a class="menu-link" id="menu-link3" href="camprofile_gaskets/CamG_LC411.html">LC 411</a></div>
+            <div class="menu-div3b"><a class="menu-link" id="menu-link3" href="camprofile_gaskets/CamG_LC413.html">LC 413</a></div>
+            <div class="menu-div3b"><a class="menu-link" id="menu-link3" href="camprofile_gaskets/CamG_LC413f.html">LC 413 floating</a></div>
+            <div class="menu-div2" id="div2c"><a class="menu-link" id="menu-link2" href="corrugated_gaskets/corrugatedGaskets.html">Corrugated gaskets</a><img src="iconmonstr-arrow-37-48.png" class="menu-img" id="img4"></div>
+            <div class="menu-div3c"><a class="menu-link" id="menu-link3" href="corrugated_gaskets/CorG_LG05.html">LG 05</a></div>
+            <div class="menu-div3c"><a class="menu-link" id="menu-link3" href="corrugated_gaskets/CorG_LG05A.html">LG 05A</a></div>  
+        </div>
+        <div class="materials-inputs">
+            <h1>Materials</h1>
+            <div id="materials-div">
+                <select onclick="showMaterials()" id="materials-menu"></select>           
+            </div>
+            <div id="materials"></div>
+            <code id="codearea"></code>
+        </div>
+        <div class="outputs">
+            <ol type="1">
+                <li>Choose material that you want to rewrite</li>
+                <li>Rewrite data</li>
+                <li>Save new file as one of sheets.js/fillers.js/strips.js</li>
+                <li>Delete original file from location C/.../calculator/javascript_materials</li>
+                <li>After file is downloaded put it into folder C/.../calculator/javascript_materials</li>
+                <li>In case of sheets sizes are: 0.5, 0.6, 0.8, 1, 2, 3, 4, 5</li>
+                <li>In case of strips sizes are: 2.5, 3.2, 4.8, 6.4, 7.2</li>
+                <li>!!! Some options are scrollable !!!</li>
+            </ol>
+            <form id="outputs-form"></form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="javascript/index.js"></script>
+        <script type="text/javascript" src="javascript/materials.js"></script>
+        <script type="text/javascript" src="javascript_materials/fillers.js"></script>
+        <script type="text/javascript" src="javascript_materials/sheets.js"></script>
+        <script type="text/javascript" src="javascript_materials/strips.js"></script>
+        <script type="text/javascript" src="javascript_materials/camprofile.js"></script>
+        <script type="text/javascript" src="javascript_materials/labour.js"></script>
+    </body>
+</html>

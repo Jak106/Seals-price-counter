@@ -1,0 +1,51 @@
+.materials-inputs {
+    width: 48vw;
+    display: grid;
+    grid-template: 
+    "heading" 10vh
+    "materials" 10vh
+    "menu" 70vh
+    /100%;
+}
+#materials-div {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto 5vh 0;
+    grid-area: options;
+    grid-area: materials;
+
+}
+#materials-menu {
+    width: 50%;
+    background: #8ecae6;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    height: 3vh;
+    text-align: center;
+}
+#materials {
+    margin: 0 0 0 auto;
+    grid-area: menu;
+    overflow-y: scroll;
+}
+#outputs-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow-y: scroll;
+    max-height: 42%;
+}
+.outputs {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+#codearea {
+    display: none;
+}
+li {
+    margin: 1vh 0 0 1vh;
+}

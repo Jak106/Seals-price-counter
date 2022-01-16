@@ -1,0 +1,326 @@
+var sheets = [
+    {
+        "id": "CS",
+        "density": 8,
+        "price1": 1.8, //0.5
+        "price2": 1.8, //0.6
+        "price3": 1.8, //0.8
+        "price4": 1.8, //1
+        "price5": 1.8, //2
+        "price6": 1.8, //3
+        "price7": 1.8, //4
+        "price8": 1.8 //5
+    },
+    {
+        "id":"316L",
+        "density":8,
+        "price1": 4.67,
+        "price2": 6.33,
+        "price3": 6.33,
+        "price4": 6.67,
+        "price5": 4.83,
+        "price6": 4.83,
+        "price7": 4.83,
+        "price8": 5.67
+    },
+    {
+        "id":"321",
+        "density":8,
+        "price1": 3.5,
+        "price2": 3.5,
+        "price3": 5.33,
+        "price4": 4.67,
+        "price5": 3.5,
+        "price6": 3.5,
+        "price7": 3.5,
+        "price8": 3.67
+    },
+    {
+        "id":"316Ti",
+        "density":8,
+        "price1": 4.67,
+        "price2": 4.83,
+        "price3": 7,
+        "price4": 6.67,
+        "price5": 4.83,
+        "price6": 4.83,
+        "price7": 4.83,
+        "price8": 5
+    },
+    {
+        "id":"304",
+        "density":8,
+        "price1": 3,
+        "price2": 3.17,
+        "price3": 4,
+        "price4": 4.17,
+        "price5": 3.67,
+        "price6": 3.17,
+        "price7": 3.17,
+        "price8": 3.33
+    },
+    {
+        "id":"1.4306",
+        "density":8,
+        "price1": 0,
+        "price2": 0,
+        "price3": 0,
+        "price4": 0,
+        "price5": 0,
+        "price6": 0,
+        "price7": 0,
+        "price8": 0
+    },
+    {
+        "id":"309",
+        "density":8,
+        "price1": 8.33,
+        "price2": 6,
+        "price3": 7.33,
+        "price4": 7.33,
+        "price5": 6,
+        "price6": 16.67,
+        "price7": 6,
+        "price8": 7.33
+    },
+    {
+        "id":"904L",
+        "density":8,
+        "price1": 0,
+        "price2": 0,
+        "price3": 0,
+        "price4": 0,
+        "price5": 0,
+        "price6": 0,
+        "price7": 0,
+        "price8": 0
+    },
+    {
+        "id":"304H",
+        "density":8,
+        "price1": 0,
+        "price2": 0,
+        "price3": 0,
+        "price4": 0,
+        "price5": 0,
+        "price6": 0,
+        "price7": 0,
+        "price8": 0
+    },
+    {
+        "id":"317L",
+        "density":8,
+        "price1": 0,
+        "price2": 0,
+        "price3": 0,
+        "price4": 0,
+        "price5": 0,
+        "price6": 0,
+        "price7": 0,
+        "price8": 0
+    },
+    {
+        "id":"347",
+        "density":8,
+        "price1": 0,
+        "price2": 0,
+        "price3": 0,
+        "price4": 0,
+        "price5": 0,
+        "price6": 0,
+        "price7": 0,
+        "price8": 0
+    },
+    {
+        "id":"1.4547",
+        "density":8,
+        "price1": 0,
+        "price2": 0,
+        "price3": 0,
+        "price4": 0,
+        "price5": 0,
+        "price6": 0,
+        "price7": 0,
+        "price8": 0
+    },
+    {
+        "id":"Monel400",
+        "density":9,
+        "price1": 60,
+        "price2": 66.67,
+        "price3": 60,
+        "price4": 36.67,
+        "price5": 36.67,
+        "price6": 36.67,
+        "price7": 28.33,
+        "price8": 43.33
+    },
+    {
+        "id":"Hast.C276",
+        "density":9,
+        "price1": 50,
+        "price2": 50,
+        "price3": 83.33,
+        "price4": 80,
+        "price5": 70,
+        "price6": 40,
+        "price7": 38.33,
+        "price8": 65.17
+    },
+    {
+        "id":"Titan Gr2",
+        "density":4.5,
+        "price1": 100,
+        "price2": 100,
+        "price3": 100,
+        "price4": 100,
+        "price5": 80,
+        "price6": 43.33,
+        "price7": 43.33,
+        "price8": 70
+    },
+    {
+        "id":"Duplex",
+        "density":8,
+        "price1": 26.67,
+        "price2": 26.67,
+        "price3": 26.67,
+        "price4": 26.67,
+        "price5": 10,
+        "price6": 6,
+        "price7": 6,
+        "price8": 6
+    },
+    {
+        "id":"Super Duplex",
+        "density":8,
+        "price1": 0,
+        "price2": 0,
+        "price3": 0,
+        "price4": 0,
+        "price5": 0,
+        "price6": 0,
+        "price7": 0,
+        "price8": 0
+    },
+    {
+        "id":"Inc 600",
+        "density":8.5,
+        "price1": 36.67,
+        "price2": 56.67,
+        "price3": 46.67,
+        "price4": 46.67,
+        "price5": 36.67,
+        "price6": 43.33,
+        "price7": 43.33,
+        "price8": 33.33
+    },
+    {
+        "id":"Inc 625",
+        "density":8.5,
+        "price1": 83.33,
+        "price2": 83.33,
+        "price3": 83.33,
+        "price4": 83.33,
+        "price5": 76.67,
+        "price6": 41.67,
+        "price7": 38.33,
+        "price8": 66.67
+    },
+    {
+        "id":"Inc 800",
+        "density":8.5,
+        "price1": 86.67,
+        "price2": 86.67,
+        "price3": 86.67,
+        "price4": 86.67,
+        "price5": 30,
+        "price6": 26.67,
+        "price7": 25,
+        "price8": 70
+    },
+    {
+        "id":"Inc 825",
+        "density":8.5,
+        "price1": 86.67,
+        "price2": 86.67,
+        "price3": 86.67,
+        "price4": 86.67,
+        "price5": 30,
+        "price6": 26.67,
+        "price7": 25,
+        "price8": 70
+    },
+    {
+        "id":"Alloy 20",
+        "density":9,
+        "price1": 46.67,
+        "price2": 46.67,
+        "price3": 46.67,
+        "price4": 46.67,
+        "price5": 30,
+        "price6": 66.67,
+        "price7": 28.33,
+        "price8": 28.33
+    },
+    {
+        "id":"Alloy 22",
+        "density":9,
+        "price1": 0,
+        "price2": 0,
+        "price3": 0,
+        "price4": 0,
+        "price5": 0,
+        "price6": 0,
+        "price7": 0,
+        "price8": 0
+    },
+    {
+        "id":"Alloy C4",
+        "density":9,
+        "price1": 0,
+        "price2": 0,
+        "price3": 0,
+        "price4": 0,
+        "price5": 0,
+        "price6": 0,
+        "price7": 0,
+        "price8": 0
+    },
+    {
+        "id":"Nickel 200/201",
+        "density":9,
+        "price1": 0,
+        "price2": 0,
+        "price3": 0,
+        "price4": 0,
+        "price5": 0,
+        "price6": 0,
+        "price7": 0,
+        "price8": 0
+    },
+    {
+        "id":"1.7335",
+        "density":8,
+        "price1": 0,
+        "price2": 0,
+        "price3": 0,
+        "price4": 0,
+        "price5": 0,
+        "price6": 0,
+        "price7": 0,
+        "price8": 0
+    },
+    {
+        "id":"Inc. X 750",
+        "density":8.5,
+        "price1": 0,
+        "price2": 0,
+        "price3": 0,
+        "price4": 0,
+        "price5": 0,
+        "price6": 0,
+        "price7": 0,
+        "price8": 0
+    }
+]

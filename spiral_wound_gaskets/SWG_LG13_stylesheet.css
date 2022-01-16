@@ -1,0 +1,98 @@
+#inputs-form {
+    align-content: center;
+    grid-area: form;
+    height: auto;
+    display: grid;
+    grid-template:
+        "ring d2 thickness-text metal-text filler-text" 25%
+        "ring d3 thickness-form2 metal-form2 filler-form" 25%
+        "ring d4 thickness-form3 metal-form3 . " 25%
+        /20% 20% 20% 20% 20%
+}
+#ring-section {
+    grid-area: ring;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+#d1-form {
+    grid-area: d1;
+}
+#d2-form {
+    grid-area: d2;
+    /*display: none;*/
+}
+#d3-form {
+    grid-area: d3;
+    /*display: none;*/
+}
+#d4-form {
+    grid-area: d4;
+}
+#thickness-text {
+    grid-area: thickness-text;
+    /*display: none;*/
+}
+#thickness-form1 {
+    grid-area: thickness-form1;
+    /*display: none;*/
+}
+#thickness-form2 {
+    grid-area: thickness-form2;
+}
+#thickness-form3 {
+    grid-area: thickness-form3;
+}
+#metal-text {
+    grid-area: metal-text;
+    /*display: none;*/
+}
+#metal-form1 {
+    grid-area: metal-form1;
+    /*display: none;*/
+}
+#metal-form2 {
+    grid-area: metal-form2;
+}
+#metal-form3 {
+    grid-area: metal-form3;
+}
+#filler-text {
+    grid-area: filler-text;
+}
+#filler-form {
+    grid-area: filler-form;
+}
+.form-text {
+    /*height: auto;
+    width: auto;*/
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+.form-input {
+    border-radius: 0.5em;
+    height: 5vh;
+    /*padding: 0.5vh 0vw 0.5vh 0vw;*/
+    width: 90%;
+    margin: auto;
+    /*background: #ffb703;*/
+    background: #8ecae6;
+    border: none;
+}
+.form-input option {
+    background: #ffb8034d;
+    border: none;
+}
+#button-form {
+    grid-area: button;
+    border: none;
+    width: 15vw;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    background: #8ecae6;
+    border-radius: 5px;
+    height: 5vh;
+    margin: auto auto auto auto;
+}

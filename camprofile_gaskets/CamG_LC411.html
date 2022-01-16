@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <title>Metal Gaskets Calculator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="CamG_LC411_stylesheet.css">
+</head>
+<body onload="LC411()">
+    <div class="menu">
+        <div class="menu-div" id="div1"><a class="menu-link" id="menu-link1" href="../index.html">Entry page</a><img src="../iconmonstr-arrow-37-48.png" class="menu-img" id="img1" onclick=""></div>
+        <div class="menu-div2" id="div2a"><a class="menu-link" id="menu-link2" href="../spiral_wound_gaskets/spiralWoundGaskets.html">Spiral Wound gasket</a><img src="../iconmonstr-arrow-37-48.png" class="menu-img" id="img2"></div>
+        <div class="menu-div3a"><a class="menu-link" id="menu-link3" href="../spiral_wound_gaskets/SWG_LG11.html">LG 11</a></div>
+        <div class="menu-div3a"><a class="menu-link" id="menu-link3" href="../spiral_wound_gaskets/SWG_LG11IR.html">LG 11 - IR</a></div>
+        <div class="menu-div3a"><a class="menu-link" id="menu-link3" href="../spiral_wound_gaskets/SWG_LG13.html">LG 13</a></div>
+        <div class="menu-div3a"><a class="menu-link" id="menu-link3" href="../spiral_wound_gaskets/SWG_LG13IR.html">LG 13 - IR</a></div>
+        <div class="menu-div3a"><a class="menu-link" id="menu-link3" href="../spiral_wound_gaskets/SWG_LG14.html">LG 14</a></div>
+        <div class="menu-div2" id="div2b"><a class="menu-link" id="menu-link2" href="../camprofile_gaskets/camprofileGaskets.html">Camprofile gaskets</a><img src="../iconmonstr-arrow-37-48.png" class="menu-img" id="img3"></div>
+        <div class="menu-div3b"><a class="menu-link" id="menu-link3" href="../camprofile_gaskets/CamG_LC411.html">LG 411</a></div>
+        <div class="menu-div3b"><a class="menu-link" id="menu-link3" href="../camprofile_gaskets/CamG_LC413.html">LG 413</a></div>
+        <div class="menu-div3b"><a class="menu-link" id="menu-link3" href="../camprofile_gaskets/CamG_LC413f.html">LG 413 floating</a></div>
+        <div class="menu-div2" id="div2c"><a class="menu-link" id="menu-link2" href="../corrugated_gaskets/corrugatedGaskets.html">Corrugated gaskets</a><img src="../iconmonstr-arrow-37-48.png" class="menu-img" id="img4"></div>
+        <div class="menu-div3c"><a class="menu-link" id="menu-link3" href="../corrugated_gaskets/CorG_LG05.html">LG 05</a></div>
+        <div class="menu-div3c"><a class="menu-link" id="menu-link3" href="../corrugated_gaskets/CorG_LG05A.html">LG 05A</a></div>  
+    </div>
+    <div class="inputs">
+        <h1>Camprofile gasket LG 411</h1>
+        <img id="inputs-img">
+        <form id="inputs-form">
+            <p class="form-text" id="d1-text">d1</p>
+            <input id="d1-form" class="form-input" type="text" placeholder="d1">
+            <input id="d2-form" class="form-input" type="text" placeholder="d2">
+            <p class="form-text" id="d2-text">d2</p>
+            <p id="metal-text" class="form-text">Metal cord</p>
+            <select id="metal-form1" class="form-input"></select>
+            <select id="filler-form" class="form-input"></select>
+            <p id="filler-text" class="form-text">Covers</p>
+            <p id="thickness-text1" class="form-text">Thickness</p>
+            <select id="thickness-form1" class="form-input"></select>
+            <select id="thickness-form2" class="form-input"></select>
+            <p id="thickness-text2" class="form-text">Thickness</p>
+        </form>
+    </div>
+    <div class="outputs">
+        <table id="outputs-table"></table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../javascript/index.js"></script>
+    <script type="text/javascript" src="../javascript/CamG_functions.js"></script>
+</body>

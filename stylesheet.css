@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+:root {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+a,
+a:visited {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+}
+a:hover,
+button:hover,
+select:hover,
+.inputs-link:hover,
+.gasket-link:hover {
+    cursor: pointer;
+}
+body {
+    background: #219ebc;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 99%;
+    height: 100%;
+    margin: 2vh auto auto auto;
+}
+.menu {
+    width: 20vw;
+    margin-right: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: #8ecae6;
+}
+.menu div {
+    padding: 0.5vh 0 0.5vh 0;
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+.menu-div2,
+.menu-div3a,
+.menu-div3b,
+.menu-div3c {
+    display: none;
+}
+.menu-link {
+    width: auto;
+    padding: 0;
+    font-size: clamp(1em, 5vw, 1.5em);
+    text-decoration: none;
+}
+.menu-img {
+    margin: auto 0.5vw auto 0;
+    padding: 0;
+    width: 1.5em;
+    height: 1.5em;
+    transition: transform 0.1s ease-in-out;
+}
+#menu-icon {
+    position: fixed;
+    bottom: 5vh;
+    left: 5vw;
+    height: 3vh;
+    width: 2vw;
+}
+.menu-img:hover {
+    cursor: pointer;
+}
+#menu-link1 {
+    margin: 0.5vh 0.5vw 0.5vh 0.5vw;
+}
+#menu-link2 {
+    margin: 0.5vh 0.5vw 0.5vh 2.5vw;
+}
+#menu-link3 {
+    margin: 0.5vh 0.5vw 0.5vh 4.5vw;
+}
+.menu-link:hover {
+    text-decoration: underline 1px;
+}
+.menu,
+.inputs,
+.outputs {
+    height: 95vh;
+}
+#index-inputs {
+    display: flex;
+    flex-direction: column;
+}
+.inputs {
+    width: 48vw;
+    display: grid;
+    grid-template: 
+    "heading heading heading heading heading" 10vh
+    "image image image image image" 35vh
+    "form form form form form" auto
+    "labour profit priceUnit weightUnit sizeUnit" 5vh
+    "labourLabel profitLabel priceLabel weightLabel sizeLabel" 8vh
+    ". count count count ." 5vh
+    /20% 20% 20% 20% 20%;
+}
+.inputs h1 {
+    font-size: 2.8em;
+    text-align: center;
+    grid-area: heading;
+    height: 10vh;
+}
+#inputs-image {
+    grid-area: image;
+}
+.SWG-types-button,
+.entry-page-button,
+.CG-types-button {
+    height: 14vh;
+    width: 15vw;
+    font-size: 1.2em;
+    background: #8ecae6;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+}
+.entry-page-button:hover{
+    cursor: pointer;
+}
+.inputs-link,
+.inputs-link:visited,
+.gasket-link {
+    width: 15vw;
+    margin: 1vh auto 1vh auto;
+    text-decoration: none;
+    color: black;
+    z-index: 99;
+}
+.inputs-img {
+    width: 90%;
+    height: 25vh;
+    margin: 5vh auto auto auto;
+}
+.inputs-form {
+    height: 45vh;
+}
+.outputs {
+    width: 28vw;
+    margin-left: 2vw;
+    border-left: #ffb703 solid 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+table {
+    width: 95%;
+    font-size: 1.5em;
+}
+td {
+    padding: 1vh 0 1vh 0;
+}

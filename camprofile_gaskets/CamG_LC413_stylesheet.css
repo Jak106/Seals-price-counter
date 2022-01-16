@@ -1,0 +1,112 @@
+#inputs-form {
+    align-content: center;
+    grid-area: form;
+    height: auto;
+    display: grid;
+    grid-template: 
+        "d-text d-inputs metal-text thickness-text1" 25%
+        "d-text d-inputs metal-form1 thickness-form1" 25%
+        "d-text d-inputs filler-form thickness-form2" 25%
+        "d-text d-inputs filler-text thickness-text2" 25%
+        /25% 25% 25% 25%
+}
+#ring-section {
+    grid-area: ring;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+#section-Dinputs {
+    grid-area: d-inputs;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+#section-Dtext {
+    grid-area: d-text;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+#d1-form {
+    grid-area: d1;
+}
+#d1-text {
+    grid-area: d1-text;
+}
+#d2-form {
+    grid-area: d2;
+}
+#d2-text {
+    grid-area: d2-text;
+}
+#d3-form {
+    grid-area: d3;
+}
+#d4-form {
+    grid-area: d4;
+}
+#thickness-text1 {
+    grid-area: thickness-text1;
+}
+#thickness-text2 {
+    grid-area: thickness-text2
+}
+#thickness-form1 {
+    grid-area: thickness-form1;
+}
+#thickness-form2 {
+    grid-area: thickness-form2;
+}
+#thickness-form3 {
+    grid-area: thickness-form3;
+}
+#metal-text {
+    grid-area: metal-text;
+}
+#metal-form1 {
+    grid-area: metal-form1;
+}
+#metal-form2 {
+    grid-area: metal-form2;
+}
+#metal-form3 {
+    grid-area: metal-form3;
+}
+#filler-text {
+    grid-area: filler-text;
+}
+#filler-form {
+    grid-area: filler-form;
+}
+.form-text {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+.form-input {
+    border-radius: 0.5em;
+    height: 5vh;
+    width: 90%;
+    margin: auto;
+    background: #8ecae6;
+    border: none;
+}
+.form-input option {
+    background: #ffb8034d;
+    border: none;
+}
+#button-form {
+    grid-area: button;
+    border: none;
+    width: 15vw;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    background: #8ecae6;
+    border-radius: 5px;
+    height: 5vh;
+    margin: auto auto auto auto;
+}
