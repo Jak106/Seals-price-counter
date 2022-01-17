@@ -1,13 +1,13 @@
 var fillers = [
     {
         "id":"Graphite 0.5 Ind",
-        "totalThickness":0,
         "priceKg": 13, //euro za kg
-        "width":0, //mm
         "density":1, //g-cm2
         "thickness":0.5, //mm
         "weight":0,
-        "totalPrice":0
+        "totalPrice":0,
+        "totalThickness":0,
+        "width":0 //mm
     },
     {
         "id":"Graphite 0.5 Nuc",

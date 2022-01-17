@@ -21,7 +21,7 @@ function metalSheetsPrice(arr, thickness) {
     return thickness == 0.50 ? arr["priceKg"] = arr["price1"]
     : thickness == 0.60 ? arr["priceKg"] = arr["price2"]
     : thickness == 0.80 ? arr["priceKg"] = arr["price3"]
-    : thickness == 1 ? arr["priceKg"] = arr["price4"]
+    : thickness == 1 || thickness == 1.5 ? arr["priceKg"] = arr["price4"]
     : thickness == 2 ? arr["priceKg"] = arr["price5"]
     : thickness == 3 ? arr["priceKg"] = arr["price6"]
     : thickness == 4 ? arr["priceKg"] = arr["price7"]

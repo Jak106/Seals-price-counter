@@ -4,6 +4,8 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+    color: black;
+    letter-spacing: 0.08rem;
 }
 a,
 a:visited {
@@ -18,7 +20,7 @@ select:hover,
     cursor: pointer;
 }
 body {
-    background: #219ebc;
+    background: url("blue-snow.png");
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -34,7 +36,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    background: #8ecae6;
+    background: #ffffff78;
 }
 .menu div {
     padding: 0.5vh 0 0.5vh 0;
@@ -51,7 +53,7 @@ body {
 .menu-link {
     width: auto;
     padding: 0;
-    font-size: clamp(1em, 5vw, 1.5em);
+    font-size: clamp(1rem, 4vh, 1.5rem);
     text-decoration: none;
 }
 .menu-img {
@@ -87,6 +89,7 @@ body {
 .inputs,
 .outputs {
     height: 95vh;
+    color: inputFontColor;
 }
 #index-inputs {
     display: flex;
@@ -118,10 +121,12 @@ body {
 .CG-types-button {
     height: 14vh;
     width: 15vw;
-    font-size: 1.2em;
-    background: #8ecae6;
+    font-size: 1.4rem;
+    background: #f2dfce;
     border-radius: 5px;
     font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-weight: bold;
     border: none;
 }
 .entry-page-button:hover{
@@ -146,6 +151,7 @@ body {
 }
 .outputs {
     width: 28vw;
+    max-width: 28vw;
     margin-left: 2vw;
     border-left: #ffb703 solid 1px;
     display: flex;
@@ -159,4 +165,48 @@ table {
 }
 td {
     padding: 1vh 0 1vh 0;
+}
+
+
+
+
+.form-input {
+    border-radius: 0.5em;
+    height: 5vh;
+    width: 90%;
+    margin: auto;
+    background: #37474fe1;
+    border: none;
+    font-size: 1rem;
+    color: #ffffffc4;
+    text-align: center;
+}
+.form-text {
+    font-size: 1.2rem;
+}
+.form-input option {
+    background: #37474f;
+    font-size: 1.3rem;
+    border: none;
+}
+.form-input::placeholder {
+    color: #a1a1a1cc;
+}
+#button-form {
+    grid-area: button;
+    border: none;
+    width: 15vw;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    background: #f2dfce;
+    color: black;
+    border-radius: 5px;
+    height: 5vh;
+    margin: auto auto auto auto;
+}
+.logo,
+.logoIndex {
+    max-width: 100%;
+    max-height: 10vh;
+    align-self: center;
 }

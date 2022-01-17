@@ -74,9 +74,10 @@ function addLogo(url, gridName) {
     let image = document.createElement("img")
     image.setAttribute("src", url)
     image.style.gridArea = gridName
-    image.style.maxWidth = "100%"
-    image.style.maxHeight = "10vh"
-    image.style.alignSelf = "center"
+    image.setAttribute("class", "logo")
+    //image.style.maxWidth = "100%"
+    //image.style.maxHeight = "10vh"
+    //image.style.alignSelf = "center"
     image.alt = "logo"
     outputs[0].appendChild(image)
 }
@@ -249,7 +250,6 @@ function makeRowMath(propName, propVal) {
     column2.style.width = "50%"
     table.style.fontSize = "1.3em"
     table.appendChild(row)
-    row.style.border = "white solid 1px"
     row.appendChild(column1)
     row.appendChild(column2)
 }

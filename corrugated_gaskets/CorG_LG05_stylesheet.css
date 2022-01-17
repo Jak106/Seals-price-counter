@@ -73,26 +73,3 @@
     align-self: center;
     justify-self: center;
 }
-.form-input {
-    border-radius: 0.5em;
-    height: 5vh;
-    width: 90%;
-    margin: auto;
-    background: #8ecae6;
-    border: none;
-}
-.form-input option {
-    background: #ffb8034d;
-    border: none;
-}
-#button-form {
-    grid-area: button;
-    border: none;
-    width: 15vw;
-    font-size: 1.2em;
-    font-family: 'Montserrat', sans-serif;
-    background: #8ecae6;
-    border-radius: 5px;
-    height: 5vh;
-    margin: auto auto auto auto;
-}

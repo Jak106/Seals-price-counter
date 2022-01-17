@@ -15,15 +15,16 @@
     margin: 0 auto 5vh 0;
     grid-area: options;
     grid-area: materials;
-
 }
 #materials-menu {
     width: 50%;
-    background: #8ecae6;
+    background: #f2dfce;
     border: none;
     font-family: 'Montserrat', sans-serif;
-    height: 3vh;
+    height: auto;
+    font-size: 1rem;
     text-align: center;
+    font-weight: bold;
 }
 #materials {
     margin: 0 0 0 auto;
@@ -48,4 +49,11 @@
 }
 li {
     margin: 1vh 0 0 1vh;
+    font-size: 1.2rem;
+}
+.logo {
+    display: none;
+}
+#materials-div option {
+    font-weight: bold;
 }
