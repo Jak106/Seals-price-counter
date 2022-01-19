@@ -20,7 +20,7 @@ select:hover,
     cursor: pointer;
 }
 body {
-    background: url("blue-snow.png");
+    background: #219ebc;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -36,7 +36,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    background: #ffffff78;
+    background: #8ecae6;
 }
 .menu div {
     padding: 0.5vh 0 0.5vh 0;
@@ -122,7 +122,7 @@ body {
     height: 14vh;
     width: 15vw;
     font-size: 1.4rem;
-    background: #f2dfce;
+    background: #8ecae6;
     border-radius: 5px;
     font-family: 'Montserrat', sans-serif;
     color: black;
@@ -166,31 +166,27 @@ table {
 td {
     padding: 1vh 0 1vh 0;
 }
-
-
-
-
 .form-input {
     border-radius: 0.5em;
     height: 5vh;
     width: 90%;
     margin: auto;
-    background: #37474fe1;
+    background: #8ecae6;
     border: none;
     font-size: 1rem;
-    color: #ffffffc4;
+    color: black;
     text-align: center;
 }
 .form-text {
     font-size: 1.2rem;
 }
 .form-input option {
-    background: #37474f;
+    background: #ffb8034d;
     font-size: 1.3rem;
     border: none;
 }
 .form-input::placeholder {
-    color: #a1a1a1cc;
+    color: black;
 }
 #button-form {
     grid-area: button;
@@ -198,7 +194,7 @@ td {
     width: 15vw;
     font-size: 1.2em;
     font-family: 'Montserrat', sans-serif;
-    background: #f2dfce;
+    background: #8ecae6;
     color: black;
     border-radius: 5px;
     height: 5vh;

@@ -18,7 +18,7 @@ function addSaveButton(content, func) {
     let button = document.createElement("button")
     button.innerHTML = content
     button.setAttribute("onclick", func)
-    button.style.background = "#f2dfce"
+    button.style.background = "#8ecae6"
     button.style.border = "none"
     button.style.height = "5vh"
     button.style.width = "40%"
@@ -50,7 +50,7 @@ function showMaterials() {
         buttonAdd.style.height = "10vh"
         buttonAdd.style.margin = "1vh 1vw 1vh 1vw"
         buttonAdd.style.border = "none"
-        buttonAdd.style.background = "#f2dfce"
+        buttonAdd.style.background = "#8ecae6"
         buttonAdd.style.fontWeight = "bold"
         buttonAdd.style.fontSize = "1rem"
         buttonAdd.style.borderRadius = "5px"
@@ -115,7 +115,7 @@ function makeRowMaterial(propName, propVal) {
         input.setAttribute("type", "text")
     }
     input.value = propVal
-    input.style.background = "#f2dfce"
+    input.style.background = "#8ecae6"
     input.style.border = "none"
     input.style.height = "5vh"
     input.style.width = "40%"
