@@ -81,7 +81,7 @@ function resultLC413f() {
     let coverMaterial = camCover.filter(material => material["id"] == coverVal)
     let floatingMaterial = sheets.filter(material => material["id"] == floatingVal)
     let mid  = corrugatedMid(d1Val, d3Val, cordMaterial[0], cordThic)
-    let floating = massFunc(d2Val, d3Val, floatingThic, floatingMaterial[0], camprofileLabour)
+    let floating = massFunc(d2Val, d3Val, floatingThic, floatingMaterial[0], "camprofileLabour")
     let cover = corrugatedCover(d1Val, d2Val, coverMaterial[0], coverThic)
     let possibilities = getPossibilities()
     let totPrice = mid["price"] + cover["price"] + floating["price"] +

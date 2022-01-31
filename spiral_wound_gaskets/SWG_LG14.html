@@ -3,8 +3,20 @@
     <title>Metal Gaskets Calculator</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../stylesheet.css">
-    <link rel="stylesheet" href="SWG_LG14_stylesheet.css">
 </head>
+<style>
+    #inputs-form {
+        align-content: center;
+        grid-area: form;
+        height: auto;
+        display: grid;
+        grid-template: 
+            "ring d1 thickness-text metal-text filler-text " 25%
+            "ring d2 thickness-form1 metal-form1 filler-form" 25%
+            "ring d3 thickness-form2 metal-form2 ." 25%
+            /auto auto auto auto auto;
+    }
+</style>
 <body onload="LG14()">
     <div class="menu">
         <div class="menu-div" id="div1"><a class="menu-link" id="menu-link1" href="../index.html">Entry page</a><img src="../iconmonstr-arrow-37-48.png" class="menu-img" id="img1" onclick=""></div>

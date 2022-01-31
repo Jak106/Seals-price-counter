@@ -3,8 +3,21 @@
     <title>Metal Gaskets Calculator</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../stylesheet.css">
-    <link rel="stylesheet" href="CorG_LG05_stylesheet.css">
 </head>
+<style>
+    #inputs-form {
+        align-content: center;
+        grid-area: form;
+        height: auto;
+        display: grid;
+        grid-template: 
+            "d1-text metal-text thickness-text1" 25%
+            "d1 metal-form1 thickness-form1" 25%
+            "d2 filler-form thickness-form2" 25%
+            "d2-text filler-text thickness-text2" 25%
+            /auto auto auto;
+    }
+</style>
 <body onload="LG05()">
     <div class="menu">
         <div class="menu-div" id="div1"><a class="menu-link" id="menu-link1" href="../index.html">Entry page</a><img src="../iconmonstr-arrow-37-48.png" class="menu-img" id="img1" onclick=""></div>

@@ -3,6 +3,7 @@ function LG05() {
     fillerOp = document.getElementById("filler-form")
     sheetWidth1 = document.getElementById("thickness-form1")
     sheetWidth2 = document.getElementById("thickness-form2")
+    sheetWidth3 = document.getElementById("ELELELELELE")
     addOptions(sheets, metal1)
     addOptions(camCover, fillerOp)
     addWidth("sheet", sheetWidth1)
@@ -24,7 +25,6 @@ function resultLG05() {
     let covers = corrugatedCover(d1Val, d2Val, coverMaterial[0], coverThic)
     makeTableCG(mid, covers, overheadCG)
 }
-
 function LG05A() {
     metal1 = document.getElementById("metal-form1")
     fillerOp = document.getElementById("filler-form")

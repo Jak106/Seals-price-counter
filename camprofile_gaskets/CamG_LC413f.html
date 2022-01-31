@@ -3,8 +3,21 @@
     <title>Metal Gaskets Calculator</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../stylesheet.css">
-    <link rel="stylesheet" href="CamG_LC413f_stylesheet.css">
 </head>
+<style>
+    #inputs-form {
+        align-content: center;
+        grid-area: form;
+        height: auto;
+        display: grid;
+        grid-template: 
+            "d-text d-inputs metal-text1 metal-text2 filler-text" 25%
+            "d-text d-inputs metal-form1 metal-form2 filler-form" 25%
+            "d-text d-inputs thickness-form1 thickness-form2 thickness-form3" 25%
+            "d-text d-inputs thickness-text1 thickness-text2 thickness-text3" 25%
+            /auto auto auto auto auto;
+    }   
+</style>
 <body onload="LC413f()">
     <div class="menu">
         <div class="menu-div" id="div1"><a class="menu-link" id="menu-link1" href="../index.html">Entry page</a><img src="../iconmonstr-arrow-37-48.png" class="menu-img" id="img1" onclick=""></div>

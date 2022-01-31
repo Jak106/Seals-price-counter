@@ -23,23 +23,30 @@ var mathLink = '../javascript/math.js'
 
 var links = [fillersLink, sheetsLink, stripsLink, labourLink, camLink, mathLink]
 
+//add JS scripts
+for (var x = 0; x < links.length; x++) {
+    scriptToAdd = document.createElement('script')
+    scriptToAdd.type = 'text/javascript'
+    scriptToAdd.src = links[x]
+    document.head.appendChild(scriptToAdd)
+}
+
+//create buttons to hide and show menu
 var para = document.createElement("p")
-para.style.textAlign = "center"
-para.style.width = "100%"
-para.style.fontSize = "1.2rem"
 para.innerHTML = "Hide menu"
 para.setAttribute("id", "hide-menu")
-para.style.cursor = "pointer"
 menu[0].appendChild(para)
 
 var paraShow = document.createElement("p")
 paraShow.innerHTML = "Show menu"
-paraShow.style.cursor = "pointer"
 paraShow.setAttribute("id", "menu-icon")
 body[0].appendChild(paraShow)
+
 var menuHide = document.getElementById("hide-menu")
 var menuIcon = document.getElementById("menu-icon")
+
 menuIcon.style.display = "none"
+
 menuHide.addEventListener('click', e => {
     menu[0].style.display = "none"
     try {
@@ -69,28 +76,40 @@ img2.style.transform = "rotate(90deg)"
 img3.style.transform = "rotate(90deg)"
 img4.style.transform = "rotate(90deg)"
 
-//add logos
+//add logos and button for partial results
 function addLogo(url, gridName) {
     let image = document.createElement("img")
     image.setAttribute("src", url)
     image.style.gridArea = gridName
-    image.setAttribute("class", "logo")
-    //image.style.maxWidth = "100%"
-    //image.style.maxHeight = "10vh"
-    //image.style.alignSelf = "center"
     image.alt = "logo"
+    image.setAttribute("class", "logo")
     outputs[0].appendChild(image)
 }
+
+let partialResDivC = document.createElement("div")
+partialResDivC.setAttribute("id", "partialResDiv")
+outputs[0].appendChild(partialResDivC)
+let partialResDiv = document.getElementById("partialResDiv")
+
+let divC = document.createElement("div")
+divC.setAttribute("id", "partialResUl")
+partialResDiv.appendChild(divC)
+var partialResList = document.getElementById("partialResUl")
+
+let buttonC = document.createElement("button")
+buttonC.setAttribute("id", "partialResBtn")
+buttonC.innerHTML = "Partial results"
+partialResDiv.appendChild(buttonC)
+let partialResbtn = document.getElementById("partialResbtn")
+
+function addResPoint() {
+    let liC = document.createElement("p")
+    liC.innerHTML = arguments[0]
+    partialResList.appendChild(liC)
+}
+
 addLogo("../AJlogo.png", "AJlogo")
 addLogo("../LGlogo.png", "LGlogo")
-
-//add JS codes
-for (var x = 0; x < links.length; x++) {
-    scriptToAdd = document.createElement('script')
-    scriptToAdd.type = 'text/javascript'
-    scriptToAdd.src = links[x]
-    document.head.appendChild(scriptToAdd)
-}
 
 //function to choose elements in class 
 function displayDiv(arr){
@@ -103,7 +122,7 @@ function displayDiv(arr){
 function imageMove(pic, arr){
     pic.addEventListener('click', e => {
         picTransform = window.getComputedStyle(pic, null)
-        if (picTransform.getPropertyValue('transform') == "matrix(6.12323e-17, 1, -1, 6.12323e-17, 0, 0)"){
+        if (picTransform.getPropertyValue('transform') == "matrix(6.12323e-17, 1, -1, 6.12323e-17, 0, 0)") {
             pic.style.transform = "rotate(0deg)";
             for (var x = 0; x < arr.length; x++){
                 arr[x].style.display = "none";
@@ -141,12 +160,12 @@ function addOptions(json, elem) {
 
 //functions to load possible widths
 function addWidth(type, elem) {
-    var sizes = []
+    let sizes = []
     type == "strip" ? sizes = [2.5, 3.2, 4.8, 6.4, 7.2]
     : type == "sheet" ? sizes = [0.5, 0.6, 0.8, 1, 1.5, 2, 3, 4, 5, 6]
     : sizes = [0.38, 0.5, 0.8, 1, 1.2];
-    for (var x = 0; x < sizes.length; x = x+1) {
-        var option = document.createElement("option");
+    for (var x = 0; x < sizes.length; x += 1) {
+        let option = document.createElement("option");
         option.text = sizes[x]
         elem.add(option)
     }
@@ -222,7 +241,6 @@ let SWGtable = {
     "Outer ring": "---",
     "Total weight": "---"
 }
-
 let CGtable = {
     "Material": "---",
     "Labour": "---",
@@ -237,6 +255,7 @@ let CGtable = {
     "Covers": "---",
     "Total weight": "---"
 }
+
 //make row in table
 function makeRowMath(propName, propVal) {
     let row = document.createElement("tr")
@@ -253,6 +272,7 @@ function makeRowMath(propName, propVal) {
     row.appendChild(column1)
     row.appendChild(column2)
 }
+
 //outputs table
 function createTable(table) {
     Object.keys(table)

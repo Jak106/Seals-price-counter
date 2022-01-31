@@ -32,13 +32,15 @@ function resultLG11() {
     metal2Val = document.getElementById("metal-form2").value
     fillerVal = document.getElementById("filler-form").value
     priceUnit = document.getElementById("priceSelect").value
+
+    partialResList.innerHTML = ""
     
     let innerRing = new mathResult(0, 0, 0, 0)
     let outerRing = new mathResult(0, 0, 0, 0)
 
     let windingMaterial = strips.filter(material => material["id"] == metal2Val)
     let fillerMaterial = fillers.filter(material => material["id"] == fillerVal)
-    let windingRing  = windingFunc(d2Val, d3Val, thic2Val, windingMaterial[0], labourD2, fillerMaterial[0])
+    let windingRing  = windingFunc(d2Val, d3Val, thic2Val, windingMaterial[0], "labourD2", fillerMaterial[0])
     
     makeTableSWG(innerRing, windingRing, outerRing, overheadSWG)
 }
@@ -68,13 +70,15 @@ function resultLG11IR() {
     metal2Val = document.getElementById("metal-form2").value
     fillerVal = document.getElementById("filler-form").value
     priceUnit = document.getElementById("priceSelect").value
+
+    partialResList.innerHTML = ""
     
     let innerMaterial = sheets.filter(material => material["id"] == metal1Val)
-    let innerRing = massFunc(d1Val, d2Val+1.5, thic1Val, innerMaterial[0], labourD1)
+    let innerRing = massFunc(d1Val, d2Val+1.5, thic1Val, innerMaterial[0], "labourD1")
 
     let windingMaterial = strips.filter(material => material["id"] == metal2Val)
     let fillerMaterial = fillers.filter(material => material["id"] == fillerVal)
-    let windingRing  = windingFunc(d2Val, d3Val, thic2Val, windingMaterial[0], labourD2, fillerMaterial[0])
+    let windingRing  = windingFunc(d2Val, d3Val, thic2Val, windingMaterial[0], "labourD2", fillerMaterial[0])
 
     let outerRing = new mathResult(0, 0, 0, 0)
 
@@ -106,14 +110,16 @@ function resultLG13() {
     fillerVal = document.getElementById("filler-form").value
     priceUnit = document.getElementById("priceSelect").value
 
+    partialResList.innerHTML = ""
+
     let innerRing = new mathResult(0, 0, 0, 0)
 
     let windingMaterial = strips.filter(material => material["id"] == metal2Val)
     let fillerMaterial = fillers.filter(material => material["id"] == fillerVal)
-    let windingRing  = windingFunc(d2Val, d3Val, thic2Val, windingMaterial[0], labourD2, fillerMaterial[0])
+    let windingRing  = windingFunc(d2Val, d3Val, thic2Val, windingMaterial[0], "labourD2", fillerMaterial[0])
 
     let outerMaterial = sheets.filter(material => material["id"] == metal3Val)
-    let outerRing = massFunc(d2Val, d3Val, thic3Val, outerMaterial[0], labourD3)
+    let outerRing = massFunc(d2Val, d3Val, thic3Val, outerMaterial[0], "labourD3")
 
     makeTableSWG(innerRing, windingRing, outerRing, overheadSWG)
 }
@@ -151,15 +157,17 @@ function resultLG13IR() {
     weightUnit = document.getElementById("weightSelect").value
     priceUnit = document.getElementById("priceSelect").value
 
+    partialResList.innerHTML = ""
+
     let innerMaterial = sheets.filter(material => material["id"] == metal1Val)
-    let innerRing = massFunc(d1Val, d2Val+1.5, thic1Val, innerMaterial[0], labourD1)
+    let innerRing = massFunc(d1Val, d2Val+1, thic1Val, innerMaterial[0], "labourD1")
 
     let windingMaterial = strips.filter(material => material["id"] == metal2Val)
     let fillerMaterial = fillers.filter(material => material["id"] == fillerVal)
-    let windingRing  = windingFunc(d2Val, d3Val, thic2Val, windingMaterial[0], labourD2, fillerMaterial[0])
+    let windingRing  = windingFunc(d2Val, d3Val, thic2Val, windingMaterial[0], "labourD2", fillerMaterial[0])
     
     let outerMaterial = sheets.filter(material => material["id"] == metal3Val)
-    let outerRing = massFunc(d3Val, d4Val, thic3Val, outerMaterial[0], labourD3)
+    let outerRing = massFunc(d3Val, d4Val, thic3Val, outerMaterial[0], "labourD3")
 
     makeTableSWG(innerRing, windingRing, outerRing, overheadSWG)
 }
@@ -182,7 +190,7 @@ function resultLG14() {
     metal1Val = document.getElementById("metal-form1").value
     fillerVal = document.getElementById("filler-form").value
 
-    table.innerHTML=""
+    partialResList.innerHTML = ""
 
     let innerRing = new mathResult(0, 0, 0, 0)
     let outerRing = new mathResult(0, 0, 0, 0)
