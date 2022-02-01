@@ -164,7 +164,7 @@ function show() {
             }
         })
     }
-    codearea.innerHTML = "let " + materialsMenu.value + " = " + JSON.stringify(arr)
+    codearea.innerHTML = "var " + materialsMenu.value + " = " + JSON.stringify(arr).replace(/,/ig, ", \n")
     saveAs()
 }
 
@@ -177,4 +177,21 @@ async function save() {
 async function saveAs() {
     fileHandle = await window.showSaveFilePicker();
     save();
+}
+
+function convertEuro(arr) {
+    arr.forEach(material => {
+        if (material.id != "eff") {
+            Object.keys(material)
+                .forEach(prop => {
+                    if (prop != "id") {
+                        material[prop] = Math.round((material[prop]/31)*100)/100
+                    }
+                }
+            )
+        }
+    })
+    console.log(arr)
+    codearea.innerHTML = "var labour_Eff"+ " = " + JSON.stringify(arr).replace(/,/ig, ", \n")
+    saveAs()
 }

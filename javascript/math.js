@@ -69,7 +69,7 @@ function getLabour(size, arr) {
             result.push(check)
         }
     })
-    return arr[result[0]]/30.126*1.3
+    return arr[result[0]]
 }
 
 function massFunc(d1, d2, thickness, arr, labourReq) {
