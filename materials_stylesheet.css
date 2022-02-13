@@ -70,3 +70,19 @@ li {
     height: 10vh;
     margin: 1vh 1vw;
 }
+label {
+    height: auto;
+    width: 40%;
+    align-self: center;
+}
+input {
+    background: var(--light-blue);
+    border: none;
+    height: 5vh;
+    width: 40%;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin: 1vh 2vw 0 0;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}

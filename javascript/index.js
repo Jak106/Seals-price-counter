@@ -178,6 +178,7 @@ function addButton(type, options, idName, gridAreaName) {
     button.style.textAlign = "center"
     button.style.gridArea = gridAreaName
     if (type == "input") {
+        button.type = "number";
         button.value = options
         button.setAttribute("class", "form-input")
     } else if (type == "select") {
@@ -213,6 +214,7 @@ function addPossibilities(func) {
     addButton("label", "weight unit", "label4", "weightLabel")
     addButton("label", "size unit", "label5", "sizeLabel")
     addButton("button", func, "button-form", "count")
+    document.getElementById("profitInput").max = "99";
 }
 //function to get values from possibilities
 function getPossibilities() {

@@ -42,7 +42,7 @@ function resultLG11() {
     let fillerMaterial = fillers.filter(material => material["id"] == fillerVal)
     let windingRing  = windingFunc(d2Val, d3Val, thic2Val, windingMaterial[0], "labourD2", fillerMaterial[0])
     
-    makeTableSWG(innerRing, windingRing, outerRing, overheadSWG)
+    makeTableSWG(innerRing, windingRing, outerRing, "overheadSWG")
 }
 
 function LG11IR() {
@@ -74,7 +74,7 @@ function resultLG11IR() {
     partialResList.innerHTML = ""
     
     let innerMaterial = sheets.filter(material => material["id"] == metal1Val)
-    let innerRing = massFunc(d1Val, d2Val+1.5, thic1Val, innerMaterial[0], "labourD1")
+    let innerRing = massFunc(d1Val, d2Val+1, thic1Val, innerMaterial[0], "labourD1")
 
     let windingMaterial = strips.filter(material => material["id"] == metal2Val)
     let fillerMaterial = fillers.filter(material => material["id"] == fillerVal)
@@ -82,7 +82,7 @@ function resultLG11IR() {
 
     let outerRing = new mathResult(0, 0, 0, 0)
 
-    makeTableSWG(innerRing, windingRing, outerRing, overheadSWG)
+    makeTableSWG(innerRing, windingRing, outerRing, "overheadSWG")
 }
 
 function LG13() {
@@ -121,7 +121,7 @@ function resultLG13() {
     let outerMaterial = sheets.filter(material => material["id"] == metal3Val)
     let outerRing = massFunc(d2Val, d3Val, thic3Val, outerMaterial[0], "labourD3")
 
-    makeTableSWG(innerRing, windingRing, outerRing, overheadSWG)
+    makeTableSWG(innerRing, windingRing, outerRing, "overheadSWG")
 }
 
 function LG13IR() {
@@ -169,7 +169,7 @@ function resultLG13IR() {
     let outerMaterial = sheets.filter(material => material["id"] == metal3Val)
     let outerRing = massFunc(d3Val, d4Val, thic3Val, outerMaterial[0], "labourD3")
 
-    makeTableSWG(innerRing, windingRing, outerRing, overheadSWG)
+    makeTableSWG(innerRing, windingRing, outerRing, "overheadSWG")
 }
 
 function LG14() {
@@ -200,5 +200,5 @@ function resultLG14() {
 
     let windingRing = LG14Math(minor, major, width, thic1Val, stripMaterial[0], fillerMaterial[0])
 
-    makeTableSWG(innerRing, windingRing, outerRing, overheadSWG)
+    makeTableSWG(innerRing, windingRing, outerRing, "overheadSWG")
 }
