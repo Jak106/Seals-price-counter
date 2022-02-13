@@ -74,7 +74,7 @@ function resultLG11IR() {
     partialResList.innerHTML = ""
     
     let innerMaterial = sheets.filter(material => material["id"] == metal1Val)
-    let innerRing = massFunc(d1Val, d2Val+1.5, thic1Val, innerMaterial[0], "labourD1")
+    let innerRing = massFunc(d1Val, d2Val+1, thic1Val, innerMaterial[0], "labourD1")
 
     let windingMaterial = strips.filter(material => material["id"] == metal2Val)
     let fillerMaterial = fillers.filter(material => material["id"] == fillerVal)

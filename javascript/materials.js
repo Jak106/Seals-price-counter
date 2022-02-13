@@ -77,9 +77,6 @@ function makeRowMaterial(propName, propVal) {
     : materialsMenu.value == "strips" ? column1.innerHTML = specialNamesStrips[propName]
     : materialsMenu.value == "labour" ? column1.innerHTML = propName + " mm"
     : column1.innerHTML = propName;
-    column1.style.height = "auto"
-    column1.style.width = "40%"
-    column1.style.alignSelf = "center"
     column1.setAttribute("id", propName + "Label")
     if (typeof(propVal) == "number") {
         input.setAttribute("type", "float")
@@ -87,15 +84,6 @@ function makeRowMaterial(propName, propVal) {
         input.setAttribute("type", "text")
     }
     input.value = propVal
-    input.style.background = "#8ecae6"
-    input.style.border = "none"
-    input.style.height = "5vh"
-    input.style.width = "40%"
-    input.style.fontSize = "1rem"
-    input.style.borderRadius = "5px"
-    input.style.margin = "1vh 2vw 0 0"
-    input.style.fontWeight = "bold"
-    input.style.fontFamily = "font-family: 'Montserrat', sans-serif"
     input.setAttribute("id", propName)
     form.appendChild(column1)
     form.appendChild(input)

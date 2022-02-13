@@ -70,9 +70,6 @@ function getLabour(size, arr) {
 function massFunc(d1, d2, thickness, arr, labourReq) {
     let possibilities = getPossibilities()
     
-    let labourArr = labour_Eff.filter(material => material["id"] == labourReq)
-    let labour = getLabour(d2-d1, labourArr[0]) //euro
-
     if(possibilities.sizeUnit == "inch") {
         d1 = d1*0.394
         d1 = d2*0.394
@@ -83,7 +80,19 @@ function massFunc(d1, d2, thickness, arr, labourReq) {
     let volume = (area2 - area1)*thickness/1000 //cm3
     let weight = volume*arr["density"] //g
     let price = (weight/1000)*metalSheetsPrice(arr, thickness) * getEFF(d2-d1)
+
+    let labourArr = labour_Eff.filter(material => material["id"] == labourReq)
+    let labour = getLabour(d2-d1, labourArr[0]) //euro
     
+    if (possibilities.weightUnit == "kilogram") {
+        weight = weight / 1000
+    }
+    
+    if (possibilities.priceUnit == "dollar") {
+        price, labour = price * 1.13, labour * 1.13
+    } else if (possibilities.priceUnit == "pound") {
+        price, labour = price * 0.84, labour * 0.84
+    }
 
     let partRes = {
         "d1": d1,
@@ -97,49 +106,41 @@ function massFunc(d1, d2, thickness, arr, labourReq) {
         "price": Math.round(price*100)/100,
         "sheet price": metalSheetsPrice(arr, thickness)
     }
-    
     let stringRes = JSON.stringify(partRes).replace(/,/ig, ",<br>").replace(/:/ig, " = ")
     addResPoint("in/out ring <br>" + stringRes + "<br>")
     
-    if (possibilities.weightUnit == "kilogram") {
-        weight = weight / 1000
-    }
-    
-    if (possibilities.priceUnit == "dollar") {
-        price = price * 1.13
-    } else if (possibilities.priceUnit == "pound") {
-        price = price * 0.84
-    }
-
     return new mathResult(volume, weight, price, labour) 
 }
 
 function windingFunc(d2, d3, thickness, materialArr, labourReq, fillerArr) {
     let possibilities = getPossibilities()
-
+    
     if (possibilities.sizeUnit == "inch") {
         d2 = d2*0.394
         d3 = d3*0.394
     }
     
     let windingWidth = (d3+1-d2)/2 //mm
-    let wrapsFiller = (windingWidth-(6*0.18))/(fillerArr["thickness"]+0.18) //number
-    let wrapsTotal = wrapsFiller + 6 //number
     let averageLength = Math.PI*((d3+1)+d2)/2 //mm
-    let lengthFiller = wrapsFiller * averageLength * 1.2 //mm
-    let lengthMaterial = wrapsTotal * averageLength * 1.2 //mm
-    let fillerWeight = fillerArr["density"] * (fillerArr["thickness"] * fillersWidth(fillerArr, thickness) * lengthFiller / 1000) //g
-    let stripWeight = materialArr["density"] * (0.18  * stripWidth(materialArr, thickness) * lengthMaterial / 1000) //g
+
+    let fillerWraps = (windingWidth-(6*0.18))/(fillerArr["thickness"]+0.18) //number
+    let fillerLength = fillerWraps * averageLength * 1.2 //mm
+    let fillerWeight = fillerArr["density"] * (fillerArr["thickness"] * fillersWidth(fillerArr, thickness) * fillerLength / 1000) //g
     let fillerCost = (fillerWeight/1000)*fillerArr["priceKg"] //kg3
-    let stripCost = (stripWeight/1000)*stripPrice(materialArr, thickness) //kg3
-    let totalCostFiller = lengthFiller * (fillerCost /1000)
-    let totalMaterialCost = lengthMaterial * (stripCost /1000)
-    let weight = fillerWeight + stripWeight
-    let price = totalCostFiller + totalMaterialCost
+    let fillerTotalCost = fillerLength * (fillerCost /1000)
     
+    let stripsWraps = fillerWraps + 6 //number
+    let stripLength = stripsWraps * averageLength * 1.2 //mm
+    let stripWeight = materialArr["density"] * (0.18  * stripWidth(materialArr, thickness) * stripLength / 1000) //g
+    let stripCost = (stripWeight/1000)*stripPrice(materialArr, thickness) //kg3
+    let stripTotalCost = stripLength * (stripCost /1000)
+
+    let weight = fillerWeight + stripWeight
+    let price = fillerTotalCost + stripTotalCost
+
     let labourArr = labour_Eff.filter(material => material["id"] == labourReq)
     let labour = getLabour(windingWidth, labourArr[0])
-
+    
     if (possibilities.weightUnit == "kilogram") {
         weight = weight / 1000 
     }
@@ -155,17 +156,16 @@ function windingFunc(d2, d3, thickness, materialArr, labourReq, fillerArr) {
         "d2": d2,
         "d3": d3,
         "Winding width": Math.round(windingWidth*100)/100,
-        "Num of filler wraps": Math.round(wrapsFiller*10)/10,
-        "Num of material wraps": Math.round(wrapsTotal*10)/10,
+        "Num of filler wraps": Math.round(fillerWraps*10)/10,
+        "Num of material wraps": Math.round(stripsWraps*10)/10,
         "Average length": Math.round(averageLength*100)/100,
-        "Filler length": Math.round(lengthFiller*100)/100,
+        "Filler length": Math.round(fillerLength*100)/100,
         "Filler weight": Math.round(fillerWeight*100)/100,
-        "Filler price": Math.round(totalCostFiller*100)/100,
-        "Material length": Math.round(lengthMaterial*100)/100,
+        "Filler price": Math.round(fillerTotalCost*100)/100,
+        "Material length": Math.round(stripLength*100)/100,
         "Material weight": Math.round(stripWeight*100)/100,
-        "Material price": Math.round(totalMaterialCost*100)/100,
+        "Material price": Math.round(stripTotalCost*100)/100,
     }
-
     let stringRes = JSON.stringify(partRes).replace(/,/ig, ",<br>").replace(/:/ig, " = ")
     addResPoint("winding <br>" + stringRes + "<br>")
     
@@ -175,39 +175,44 @@ function windingFunc(d2, d3, thickness, materialArr, labourReq, fillerArr) {
 function LG14Math(minor, major, width, thickness, materialArr, fillerArr) {
     let possibilities = getPossibilities()
     let labourArr = labour_Eff.filter(material => material["id"] == "labourD2")
+    let labour = getLabour(width, labourArr[0])
+
     if (possibilities.sizeUnit == "inch") {
         major = major*0.394
         minor = minor*0.394
         width = width*0.394
     }
-    let wrapsTotal = (width + 3)/0.678
-    let wrapsFiller = wrapsTotal - 6
+
     let averageLenght = Math.PI*Math.sqrt(2*((major+width/2)**2)+((minor+width/2)**2))
-    let lengthFiller = wrapsFiller * averageLenght * 1.2//mm
-    let lengthMaterial = wrapsTotal * averageLenght * 1.2//mm
-    let fillerWeight = fillerArr["density"] * fillerArr["thickness"] * fillersWidth(fillerArr, thickness) * lengthFiller /1000
-    let stripWeight = materialArr["density"] * 0.18 *  stripWidth(materialArr, thickness) * lengthMaterial /1000
-
-    let fillerCost = fillerWeight*fillerArr["priceKg"]/1000
-
+    
+    let stripsWraps = (width + 3)/0.678
+    let stripLength = stripsWraps * averageLenght * 1.2//mm
+    let stripWeight = materialArr["density"] * 0.18 *  stripWidth(materialArr, thickness) * stripLength /1000
     let stripCost = stripWeight * stripPrice(materialArr, thickness)/1000
-    let totalCostFiller = lengthFiller * fillerCost / 1000
-    let totalMaterialCost = lengthMaterial * stripCost / 1000
-    let weight = (fillerWeight + stripWeight)
-    let price = (totalCostFiller + totalMaterialCost) + getEFF(width)
-    let labour = getLabour(width, labourArr[0])
+    let stripTotalCost = stripLength * stripCost / 1000
+
+    let fillerWraps = stripsWraps - 6
+    let fillerLength = fillerWraps * averageLenght * 1.2//mm
+    let fillerWeight = fillerArr["density"] * fillerArr["thickness"] * fillersWidth(fillerArr, thickness) * fillerLength /1000
+    let fillerCost = fillerWeight*fillerArr["priceKg"]/1000
+    let fillerTotalCost = fillerLength * fillerCost / 1000
+    
+    let weight = (fillerWeight + stripWeight)    
+    let price = (fillerTotalCost + stripTotalCost) + getEFF(width)
+    
+    
 
     let partRes = {
         "width": width,
-        "Num of filler wraps": Math.round(wrapsFiller*10)/10,
-        "Num of material wraps": Math.round(wrapsTotal*10)/10,
-        "Average length": Math.round(averageLength*100)/100,
-        "Filler length": Math.round(lengthFiller*100)/100,
+        "Num of filler wraps": Math.round(fillerWraps*10)/10,
+        "Num of material wraps": Math.round(stripsWraps*10)/10,
+        "Average length": Math.round(averageLenght*100)/100,
+        "Filler length": Math.round(fillerLength*100)/100,
         "Filler weight": Math.round(fillerWeight*100)/100,
-        "Filler price": Math.round(totalCostFiller*100)/100,
-        "Material length": Math.round(lengthMaterial*100)/100,
+        "Filler price": Math.round(fillerTotalCost*100)/100,
+        "Material length": Math.round(stripLength*100)/100,
         "Material weight": Math.round(stripWeight*100)/100,
-        "Material price": Math.round(totalMaterialCost*100)/100,
+        "Material price": Math.round(stripTotalCost*100)/100,
     }
 
     let stringRes = JSON.stringify(partRes).replace(/,/ig, ",<br>").replace(/:/ig, " = ")
@@ -216,7 +221,6 @@ function LG14Math(minor, major, width, thickness, materialArr, fillerArr) {
     return new mathResult(0, weight, price, labour)
 }
 function corrugatedCover(d1, d2, coversMaterial, thicknessCover) {
-    
     let possibilities = getPossibilities()
     let labourArr = labour_Eff.filter(material => material["id"] == "corrugatedLabour")
     if(possibilities.sizeUnit == "inch") {
