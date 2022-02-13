@@ -172,9 +172,7 @@ function windingFunc(d2, d3, thickness, materialArr, labourReq, fillerArr) {
 
 function LG14Math(minor, major, width, thickness, materialArr, fillerArr) {
     let possibilities = getPossibilities()
-    let labourArr = labour_Eff.filter(material => material["id"] == "labourD2")
-    let labour = getLabour(width, labourArr[0])
-
+    
     if (possibilities.sizeUnit == "inch") {
         major = major*0.394
         minor = minor*0.394
@@ -195,6 +193,9 @@ function LG14Math(minor, major, width, thickness, materialArr, fillerArr) {
     
     let weight = fillerWeight + stripWeight  
     let price = fillerCost + stripCost
+
+    let labourArr = labour_Eff.filter(material => material["id"] == "labourD2")
+    let labour = getLabour(width, labourArr[0])
     
     let partRes = {
         "width": width,
@@ -216,16 +217,19 @@ function LG14Math(minor, major, width, thickness, materialArr, fillerArr) {
 
 function corrugatedCover(d1, d2, coversMaterial, thicknessCover) {
     let possibilities = getPossibilities()
-    let labourArr = labour_Eff.filter(material => material["id"] == "corrugatedLabour")
+
     if(possibilities.sizeUnit == "inch") {
         d1 = d1*0.394
         d2 = d2*0.394
     }
+
     let area1 = Math.PI*((d1/2)**2) //mm2
     let area2 = Math.PI*((d2/2)**2) //mm2
     let volume = ((area2 - area1)*thicknessCover/1000)*2
     let weight = (volume*coversMaterial["density"])
     let price = weight*coversMaterial["priceKg"]/1000*getEFF(d2-d1)
+
+    let labourArr = labour_Eff.filter(material => material["id"] == "corrugatedLabour")
     let labour = getLabour(d2-d1, labourArr[0])
     
     if (possibilities.weightUnit == "kilogram") {
@@ -249,7 +253,6 @@ function corrugatedCover(d1, d2, coversMaterial, thicknessCover) {
         "price": Math.round(price*100)/100,
         "sheet price": metalSheetsPrice(coversMaterial, thicknessCover)
     }
-    
     let stringRes = JSON.stringify(partRes).replace(/,/ig, ",<br>").replace(/:/ig, " = ")
     addResPoint("cover <br>" + stringRes + "<br>")
 
@@ -257,28 +260,28 @@ function corrugatedCover(d1, d2, coversMaterial, thicknessCover) {
 }
 function corrugatedMid(d1, d2, cordMaterial, thicknessMetal) {
     let possibilities = getPossibilities()
-    let labourArr = labour_Eff.filter(material => material["id"] == "labourD2")
+
     if(possibilities.sizeUnit == "inch") {
         d1 = d1*0.394
         d2 = d2*0.394
     }
+    
     let area1 = Math.PI*((d1/2)**2) //mm2
     let area2 = Math.PI*((d2/2)**2) //mm2
     let volume = (area2 - area1)*thicknessMetal/1000
     let weight = (volume*cordMaterial["density"])
     let price = weight*stripPrice(cordMaterial, thicknessMetal)/1000
-    let labour = getLabour(d2-d1, labourArr[0])
     
+    let labourArr = labour_Eff.filter(material => material["id"] == "labourD2")
+    let labour = getLabour(d2-d1, labourArr[0])
     
     if (possibilities.weightUnit == "kilogram") {
         weight = weight / 1000 
     }
     if (possibilities.priceUnit == "dollar") {
-        price = price * 1.13
-        labour = labour * 1.13
+        price, labour = price * 1.13, labour * 1.13
     } else if (possibilities.priceUnit == "pound") {
-        price = price * 0.84
-        labour = labour * 1.13
+        price, labour = price * 0.84, labour * 0.84
     }
 
     let partRes = {
@@ -292,13 +295,13 @@ function corrugatedMid(d1, d2, cordMaterial, thicknessMetal) {
         "eff": getEFF(d2-d1),
         "sheet price": metalSheetsPrice(cordMaterial, thicknessMetal)
     }
-    
     let stringRes = JSON.stringify(partRes).replace(/,/ig, ",<br>").replace(/:/ig, " = ")
     addResPoint("cord <br>" + stringRes + "<br>")
 
     return new mathResult(volume, weight, price, labour)
 }
 
+//total prices for SWG/CG and price including profit
 function totalSWGPrice(innerRing, windingRing, outerRing, eLabour, overhead) {
     return innerRing["price"] + windingRing["price"] + outerRing["price"] + 
         innerRing["labour"] +  windingRing["labour"] + outerRing["labour"] + eLabour +
@@ -310,14 +313,9 @@ function totalCGPrice(mid, cover, eLabour, overhead) {
         (mid.labour + cover.labour)*overhead
 }
 function getProfit(price, profit) {
-    console.log(`price = ${price},
-    profit = ${profit},
-    profit/100 = ${profit/100},
-    1-profit/100 = ${1-(profit/100)},
-    price/(1-profit/100) = ${price/(1-profit/100)}`)
-    console.log(price/(1-(profit/100)))
     return price/(1-(profit/100))
 }
+
 //function to create table with result functions
 function makeTableSWG(innerRing, windingRing, outerRing, overhead) {
     let possibilities = getPossibilities()
@@ -342,7 +340,6 @@ function makeTableSWG(innerRing, windingRing, outerRing, overhead) {
 }
 function makeTableCG(mid, cover, overhead) {
     let possibilities = getPossibilities()
-    console.log(possibilities)
     let overheadVal = labour_Eff.filter(type => type.id === "overhead")
     let totalPrice = totalCGPrice(mid, cover, possibilities.labour, overheadVal[0][overhead])
 
