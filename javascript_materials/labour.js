@@ -128,4 +128,8 @@ var labour_Eff = [{"id":"labourD1",
 "35.00":1.9, 
 "40.00":1.8, 
 "45.00":1.7, 
-"50.00":1.6}]
+"50.00":1.6},
+{"id":"overhead",
+"overheadSWG": 3.6,
+"overheadCM": 4,
+"overheadCG": 3.6}]

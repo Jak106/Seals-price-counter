@@ -17,11 +17,12 @@ function resultLC411() {
     coverVal = document.getElementById("filler-form").value
     cordThic = parseFloat(document.getElementById("thickness-form1").value)
     coverThic = parseFloat(document.getElementById("thickness-form2").value)
+    partialResList.innerHTML = ""
     let cordMaterial = sheets.filter(material => material["id"] == materialVal)
     let coverMaterial = camCover.filter(material => material["id"] == coverVal)
     let mid  = corrugatedMid(d1Val, d2Val, cordMaterial[0], cordThic)
     let covers = corrugatedCover(d1Val, d2Val, coverMaterial[0], coverThic)
-    makeTableCG(mid, covers, overheadCM)
+    makeTableCG(mid, covers, "overheadCM")
 }
 
 function LC413() {
@@ -48,7 +49,7 @@ function resultLC413() {
     let coverMaterial = camCover.filter(material => material["id"] == coverVal)
     let mid  = corrugatedMid(d1Val, d3Val, cordMaterial[0], cordThic)
     let covers = corrugatedCover(d1Val, d2Val, coverMaterial[0], coverThic)
-    makeTableCG(mid, covers, overheadCM)
+    makeTableCG(mid, covers, "overheadCM")
 }
 
 function LC413f() {
@@ -83,21 +84,25 @@ function resultLC413f() {
     let mid  = corrugatedMid(d1Val, d3Val, cordMaterial[0], cordThic)
     let floating = massFunc(d2Val, d3Val, floatingThic, floatingMaterial[0], "camprofileLabour")
     let cover = corrugatedCover(d1Val, d2Val, coverMaterial[0], coverThic)
+    
     let possibilities = getPossibilities()
+
+
+    let overheadVal = labour_Eff.filter(type => type.id === "overhead")
     let totPrice = mid["price"] + cover["price"] + floating["price"] +
         mid["labour"] + cover["labour"] + possibilities.labour + floating["labour"] +
-        (mid.labour + cover.labour + possibilities.labour + floating.labour)*overheadCG + 
-        (mid["price"] + cover["price"] + possibilities.labour + floating["labour"])*possibilities.profit/100
+        (mid.labour + cover.labour + possibilities.labour + floating.labour)*overheadVal[0].overheadCM
+
     table.innerHTML = ""
     CGtable["Material"] = Math.round((mid.price + cover.price)*100)/100 + " " + possibilities.priceUnit //Sum of all prices of materials
     CGtable["Labour"] = Math.round((mid.labour + cover.labour)*100)/100 + possibilities.labour + " " + possibilities.priceUnit//Sum of all prices of labour
-    CGtable["Overhead"] =  Math.round(((mid.labour + cover.labour)*overheadCM)*100)/100 + possibilities.labour + " " + possibilities.priceUnit
+    CGtable["Overhead"] =  Math.round(((mid.labour + cover.labour)*overheadVal[0].overheadCM)*100)/100 + possibilities.labour + " " + possibilities.priceUnit
     CGtable["SC"] = Math.round(totPrice*100)/100 + " " + possibilities.priceUnit
-    CGtable["1 pc"] = Math.round(totPrice*1.3*100)/100 + " " + possibilities.priceUnit // math
-    CGtable["2-5 pc"] = Math.round(totPrice*1.15*100)/100 + " " + possibilities.priceUnit // math
-    CGtable["6-20 pc"] = Math.round(totPrice*100)/100 + " " + possibilities.priceUnit// math
-    CGtable["21-50 pc"] = Math.round(totPrice*0.95*100)/100 + " " + possibilities.priceUnit // math
-    CGtable[">50 pc"] = Math.round(totPrice*0.85*100)/100 + " " + possibilities.priceUnit // math
+    CGtable["1 pc"] = Math.round(getProfit(totPrice, possibilities.profit)*1.3*100)/100 + " " + possibilities.priceUnit // math
+    CGtable["2-5 pc"] = Math.round(getProfit(totPrice, possibilities.profit)*1.15*100)/100 + " " + possibilities.priceUnit // math
+    CGtable["6-20 pc"] = Math.round(getProfit(totPrice, possibilities.profit)*100)/100 + " " + possibilities.priceUnit// math
+    CGtable["21-50 pc"] = Math.round(getProfit(totPrice, possibilities.profit)*0.95*100)/100 + " " + possibilities.priceUnit // math
+    CGtable[">50 pc"] = Math.round(getProfit(totPrice, possibilities.profit)*0.85*100)/100 + " " + possibilities.priceUnit // math
     CGtable["Metal Cord"] = Math.round(mid.weight*100)/100 + " " + possibilities.weightUnit // weight of inner ring
     CGtable["Covers"] = Math.round(cover.weight*100)/100 + " " + possibilities.weightUnit // weight of winding
     CGtable["Total weight"] = Math.round((mid.weight + cover.weight)*100)/100 + " " + possibilities.weightUnit //weight of all materials summed

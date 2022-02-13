@@ -23,7 +23,7 @@ function resultLG05() {
     let coverMaterial = camCover.filter(material => material["id"] == coverVal)
     let mid  = corrugatedMid(d1Val, d2Val, cordMaterial[0], cordThic)
     let covers = corrugatedCover(d1Val, d2Val, coverMaterial[0], coverThic)
-    makeTableCG(mid, covers, overheadCG)
+    makeTableCG(mid, covers, "overheadCG")
 }
 function LG05A() {
     metal1 = document.getElementById("metal-form1")
@@ -50,5 +50,5 @@ function resultLG05A() {
     let coverMaterial = camCover.filter(material => material["id"] == coverVal)
     let mid  = corrugatedMid(d1Val, d3Val, cordMaterial[0], cordThic)
     let covers = corrugatedCover(d1Val, d2Val, coverMaterial[0], coverThic)
-    makeTableCG(mid, covers, overheadCG)
+    makeTableCG(mid, covers, "overheadCG")
 }

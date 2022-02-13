@@ -11,8 +11,8 @@ options.forEach(option => {
     optionAdd.innerHTML = option
     materialsMenu.appendChild(optionAdd)
 })
-//sets array to show based on choseon option
 function setArr(opt) {
+    //return the array of the specified type
     return opt == "fillers" ? fillers
     : opt == "sheets" ? sheets
     : opt == "strips" ? strips
