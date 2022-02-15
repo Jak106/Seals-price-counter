@@ -214,6 +214,7 @@ function addPossibilities(func) {
     addButton("label", "weight unit", "label4", "weightLabel")
     addButton("label", "size unit", "label5", "sizeLabel")
     addButton("button", func, "button-form", "count")
+    shapesGeneration()
     document.getElementById("profitInput").max = "99";
 }
 //function to get values from possibilities
@@ -225,6 +226,48 @@ function getPossibilities() {
         "weightUnit": document.getElementById("weightSelect").value,
         "sizeUnit": document.getElementById("sizeSelect").value
     }
+}
+
+//function to add options to shapes
+function addShapesOption(name, value) {
+    let img = document.createElement("img")
+    img.src = '../photos/' + name + ".png"
+    img.alt = name
+    img.setAttribute("onclick", `shape(${value})`)
+    document.getElementById("shape-menu").appendChild(img)
+}
+
+//function to add shapes
+function shapesGeneration() {
+    let shapeDropDown = document.createElement("div")
+    shapeDropDown.id = "shape-dropDown"
+    inputs[0].appendChild(shapeDropDown)
+    
+    let shapeButton = document.createElement("button")
+    shapeButton.id = "shape-button"
+    shapeButton.innerHTML = "Shapes"
+    document.getElementById("shape-dropDown").appendChild(shapeButton)
+    
+    let shapeMenu = document.createElement("div")
+    shapeMenu.id = "shape-menu"
+    document.getElementById("shape-dropDown").appendChild(shapeMenu)
+
+    addShapesOption("img1", 1.1)
+    addShapesOption("img2", 1.2)
+    addShapesOption("img3", 1.3)
+    addShapesOption("img4", 1.4)
+    addShapesOption("img5", 1.5)
+    addShapesOption("img6", 1.6)
+    addShapesOption("img7", 1.7)
+    addShapesOption("img8", 1.8)
+    addShapesOption("img9", 1.9)
+    addShapesOption("img10", 2.0)
+    addShapesOption("img11", 2.1)
+    addShapesOption("img12", 2.2)
+    addShapesOption("img13", 2.3)
+    addShapesOption("img14", 2.4)
+    addShapesOption("img15", 2.5)
+    addShapesOption("img16", 2.6)
 }
 
 //two possible result tables

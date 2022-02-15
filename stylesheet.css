@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nova+Round&display=swap');
 :root {
     margin: 0;
     padding: 0;
@@ -17,8 +17,11 @@ button {
     border-radius: 5px;
     background: var(--light-blue);
 }
-a,
-a:visited {
+input, select {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+a, a:visited {
     font-family: 'Montserrat', sans-serif;
     color: black;
 }
@@ -320,17 +323,11 @@ td {
     align-items: center;
     justify-content: space-around;
 }
-input, select {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-}
 
 #shape-dropDown {
     grid-area: shapes;
-    border: solid white 1px;
     height: 5vh;
     width: 100%;
-    margin: auto;
 }
 #shape-button {
     width: 100%;
@@ -338,8 +335,18 @@ input, select {
 }
 #shape-menu {
     display: none;
-    list-style: none;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: auto;
+    width: 400%;
+}
+#shape-menu img{
+    width: 30%;
+    margin: .25vh .5%;
+    height: 13vh;
+    z-index: 99;
+    background-color: white;
 }
 #shape-dropDown:hover #shape-menu{
-    display: inline;
+    display: flex;
 }
