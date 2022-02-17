@@ -214,6 +214,7 @@ function addPossibilities(func) {
     addButton("label", "weight unit", "label4", "weightLabel")
     addButton("label", "size unit", "label5", "sizeLabel")
     addButton("button", func, "button-form", "count")
+    shapesGeneration()
     document.getElementById("profitInput").max = "99";
 }
 //function to get values from possibilities
@@ -227,13 +228,12 @@ function getPossibilities() {
     }
 }
 
-<<<<<<< Updated upstream
-=======
 //function to add options to shapes
 function addShapesOption(name, value) {
     let img = document.createElement("img")
     img.src = '../images/img' + name + ".png"
     img.alt = `number: ${name}, increment: ${value}`
+    img.value = value
     img.setAttribute("onclick", `shape(${String(name)},${value})`)
     document.getElementById("shape-menu").appendChild(img)
 }
@@ -247,6 +247,7 @@ function shapesGeneration() {
     let shapeButton = document.createElement("img")
     shapeButton.src = "../images/img1.png"
     shapeButton.id = "shape-button"
+    shapeButton.value = 1
     shapeButton.innerHTML = "Shapes"
     document.getElementById("shape-dropDown").appendChild(shapeButton)
     
@@ -287,7 +288,6 @@ function shapesGeneration() {
     addShapesOption("112", 3.6)
 }
 
->>>>>>> Stashed changes
 //two possible result tables
 let SWGtable = {
     "Material": "---",

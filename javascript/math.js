@@ -31,14 +31,11 @@ function fillersWidth(arr, thickness) {
     : arr["width"] = 10
 }
 
-<<<<<<< Updated upstream
-=======
 function shape(name, inc) {
     document.getElementById("shape-button").src = `../images/img${name}.png`;
     document.getElementById("shape-button").value = inc;
 }
 
->>>>>>> Stashed changes
 //function to create result of object
 function mathResult(volume, weight, price, labour) {
     this.volume = volume,
@@ -328,7 +325,7 @@ function getProfit(price, profit) {
 function makeTableSWG(innerRing, windingRing, outerRing, overhead) {
     let possibilities = getPossibilities()
     let overheadVal = labour_Eff.filter(type => type.id === "overhead")
-    let totalPrice = totalSWGPrice(innerRing, windingRing, outerRing, possibilities.labour, overheadVal[0][overhead])
+    let totalPrice = totalSWGPrice(innerRing, windingRing, outerRing, possibilities.labour, overheadVal[0][overhead]) * document.getElementById("shape-button").value
 
     table.innerHTML = ""
     SWGtable["Material"] = Math.round((innerRing["price"] + windingRing["price"] + outerRing["price"])*100)/100 + " " + possibilities.priceUnit //Sum of all prices of materials
@@ -349,7 +346,7 @@ function makeTableSWG(innerRing, windingRing, outerRing, overhead) {
 function makeTableCG(mid, cover, overhead) {
     let possibilities = getPossibilities()
     let overheadVal = labour_Eff.filter(type => type.id === "overhead")
-    let totalPrice = totalCGPrice(mid, cover, possibilities.labour, overheadVal[0][overhead])
+    let totalPrice = totalCGPrice(mid, cover, possibilities.labour, overheadVal[0][overhead]) * document.getElementById("shape-button").value
 
     table.innerHTML = ""
     CGtable["Material"] = Math.round((mid.price + cover.price)*100)/100 + " " + possibilities.priceUnit //Sum of all prices of materials

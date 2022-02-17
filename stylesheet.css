@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 :root {
     margin: 0;
     padding: 0;
@@ -112,7 +112,7 @@ body {
     display: grid;
     grid-template: 
     "heading heading heading heading heading" 10vh
-    "image image image image image" 35vh
+    "shapes image image image image" 35vh
     "form form form form form" auto
     "labour profit priceUnit weightUnit sizeUnit" 5vh
     "labourLabel profitLabel priceLabel weightLabel sizeLabel" 8vh
@@ -322,11 +322,6 @@ td {
     align-items: center;
     justify-content: space-around;
 }
-<<<<<<< Updated upstream
-input, select {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-=======
 
 #shape-dropDown {
     margin: auto;
@@ -355,5 +350,4 @@ input, select {
 }
 #shape-dropDown:hover #shape-menu{
     display: flex;
->>>>>>> Stashed changes
 }
