@@ -125,8 +125,10 @@ body {
     grid-area: heading;
     height: 10vh;
 }
-#inputs-image {
+#inputs-img {
     grid-area: image;
+    margin: auto;
+    width: 90%;
 }
 .SWG-types-button,
 .entry-page-button,
@@ -320,7 +322,38 @@ td {
     align-items: center;
     justify-content: space-around;
 }
+<<<<<<< Updated upstream
 input, select {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+=======
+
+#shape-dropDown {
+    margin: auto;
+    grid-area: shapes;
+    height: 5vh;
+    width: 100%;
+}
+#shape-button {
+    margin: auto;
+    width: 100%;
+    height: auto;
+}
+#shape-menu {
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: auto;
+    width: 500%;
+}
+#shape-menu img{
+    width: 13%;
+    height: 10vh;
+    border: solid black 1px;
+    z-index: 99;
+    background-color: white;
+}
+#shape-dropDown:hover #shape-menu{
+    display: flex;
+>>>>>>> Stashed changes
 }

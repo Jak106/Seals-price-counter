@@ -31,6 +31,14 @@ function fillersWidth(arr, thickness) {
     : arr["width"] = 10
 }
 
+<<<<<<< Updated upstream
+=======
+function shape(name, inc) {
+    document.getElementById("shape-button").src = `../images/img${name}.png`;
+    document.getElementById("shape-button").value = inc;
+}
+
+>>>>>>> Stashed changes
 //function to create result of object
 function mathResult(volume, weight, price, labour) {
     this.volume = volume,
