@@ -31,8 +31,8 @@ function fillersWidth(arr, thickness) {
     : arr["width"] = 10
 }
 
-function shape(inc) {
-    document.getElementById("shape-button").innerHTML = inc;
+function shape(name, inc) {
+    document.getElementById("shape-button").src = `../images/img${name}.png`;
     document.getElementById("shape-button").value = inc;
 }
 
