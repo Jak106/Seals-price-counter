@@ -26,8 +26,8 @@ function LG11() {
     createTable(SWGtable)   
 }
 function resultLG11() {
-    d2Val = parseFloat(document.getElementById("d2-form").value)
-    d3Val = parseFloat(document.getElementById("d3-form").value)
+    d2Val = parseFloat(document.getElementById("d2-form").value.replace(/,/, "."))
+    d3Val = parseFloat(document.getElementById("d3-form").value.replace(/,/, "."))
     thic2Val = parseFloat(document.getElementById("thickness-form2").value)
     metal2Val = document.getElementById("metal-form2").value
     fillerVal = document.getElementById("filler-form").value
@@ -61,9 +61,9 @@ function LG11IR() {
     
 }
 function resultLG11IR() {
-    d1Val = parseFloat(document.getElementById("d1-form").value)
-    d2Val = parseFloat(document.getElementById("d2-form").value)
-    d3Val = parseFloat(document.getElementById("d3-form").value)
+    d1Val = parseFloat(document.getElementById("d1-form").value.replace(/,/, "."))
+    d2Val = parseFloat(document.getElementById("d2-form").value.replace(/,/, "."))
+    d3Val = parseFloat(document.getElementById("d3-form").value.replace(/,/, "."))
     thic1Val = parseFloat(document.getElementById("thickness-form1").value)
     thic2Val = parseFloat(document.getElementById("thickness-form2").value)
     metal1Val = document.getElementById("metal-form1").value
@@ -100,9 +100,9 @@ function LG13() {
     addPossibilities("resultLG13()")
 }
 function resultLG13() {
-    d2Val = parseFloat(document.getElementById("d2-form").value)
-    d3Val = parseFloat(document.getElementById("d3-form").value)
-    d4Val = parseFloat(document.getElementById("d4-form").value)
+    d2Val = parseFloat(document.getElementById("d2-form").value.replace(/,/, "."))
+    d3Val = parseFloat(document.getElementById("d3-form").value.replace(/,/, "."))
+    d4Val = parseFloat(document.getElementById("d4-form").value.replace(/,/, "."))
     thic2Val = parseFloat(document.getElementById("thickness-form2").value)
     thic3Val = parseFloat(document.getElementById("thickness-form3").value)
     metal2Val = document.getElementById("metal-form2").value
@@ -143,10 +143,10 @@ function LG13IR() {
     addPossibilities("resultLG13IR()")
 }
 function resultLG13IR() {
-    d1Val = parseFloat(document.getElementById("d1-form").value)
-    d2Val = parseFloat(document.getElementById("d2-form").value)
-    d3Val = parseFloat(document.getElementById("d3-form").value)
-    d4Val = parseFloat(document.getElementById("d4-form").value)
+    d1Val = parseFloat(document.getElementById("d1-form").value.replace(/,/, "."))
+    d2Val = parseFloat(document.getElementById("d2-form").value.replace(/,/, "."))
+    d3Val = parseFloat(document.getElementById("d3-form").value.replace(/,/, "."))
+    d4Val = parseFloat(document.getElementById("d4-form").value.replace(/,/, "."))
     thic1Val = parseFloat(document.getElementById("thickness-form1").value)
     thic2Val = parseFloat(document.getElementById("thickness-form2").value)
     thic3Val = parseFloat(document.getElementById("thickness-form3").value)
@@ -183,9 +183,9 @@ function LG14() {
     createTable(SWGtable)
 }
 function resultLG14() {
-    let minor = parseFloat(document.getElementById("d1-form").value)
-    let major = parseFloat(document.getElementById("d2-form").value)
-    let width = parseFloat(document.getElementById("d3-form").value)
+    let minor = parseFloat(document.getElementById("d1-form").value.replace(/,/, "."))
+    let major = parseFloat(document.getElementById("d2-form").value.replace(/,/, "."))
+    let width = parseFloat(document.getElementById("d3-form").value.replace(/,/, "."))
     thic1Val = parseFloat(document.getElementById("thickness-form1").value)
     metal1Val = document.getElementById("metal-form1").value
     fillerVal = document.getElementById("filler-form").value

@@ -11,8 +11,8 @@ function LC411() {
     addPossibilities("resultLC411()")
 }
 function resultLC411() {
-    d1Val = parseFloat(document.getElementById("d1-form").value)
-    d2Val = parseFloat(document.getElementById("d2-form").value)
+    d1Val = parseFloat(document.getElementById("d1-form").value.replace(/,/, "."))
+    d2Val = parseFloat(document.getElementById("d2-form").value.replace(/,/, "."))
     materialVal = document.getElementById("metal-form1").value
     coverVal = document.getElementById("filler-form").value
     cordThic = parseFloat(document.getElementById("thickness-form1").value)
@@ -38,9 +38,9 @@ function LC413() {
     addPossibilities("resultLC413()")
 }
 function resultLC413() {
-    d1Val = parseFloat(document.getElementById("d1-form").value)
-    d2Val = parseFloat(document.getElementById("d2-form").value)
-    d3Val = parseFloat(document.getElementById("d3-form").value)
+    d1Val = parseFloat(document.getElementById("d1-form").value.replace(/,/, "."))
+    d2Val = parseFloat(document.getElementById("d2-form").value.replace(/,/, "."))
+    d3Val = parseFloat(document.getElementById("d3-form").value.replace(/,/, "."))
     materialVal = document.getElementById("metal-form1").value
     coverVal = document.getElementById("filler-form").value
     cordThic = parseFloat(document.getElementById("thickness-form1").value)
@@ -69,9 +69,9 @@ function LC413f() {
     addPossibilities("resultLC413f()")
 }
 function resultLC413f() {
-    d1Val = parseFloat(document.getElementById("d1-form").value)
-    d2Val = parseFloat(document.getElementById("d2-form").value)
-    d3Val = parseFloat(document.getElementById("d3-form").value)
+    d1Val = parseFloat(document.getElementById("d1-form").value.replace(/,/, "."))
+    d2Val = parseFloat(document.getElementById("d2-form").value.replace(/,/, "."))
+    d3Val = parseFloat(document.getElementById("d3-form").value.replace(/,/, "."))
     cordVal = document.getElementById("metal-form1").value
     floatingVal = document.getElementById("metal-form2").value
     coverVal = document.getElementById("filler-form").value

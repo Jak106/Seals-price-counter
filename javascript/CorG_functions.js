@@ -12,8 +12,8 @@ function LG05() {
     addPossibilities("resultLG05()")
 }
 function resultLG05() {
-    d1Val = parseFloat(document.getElementById("d1-form").value)
-    d2Val = parseFloat(document.getElementById("d2-form").value)
+    d1Val = parseFloat(document.getElementById("d1-form").value.replace(/,/, "."))
+    d2Val = parseFloat(document.getElementById("d2-form").value.replace(/,/, "."))
     materialVal = document.getElementById("metal-form1").value
     coverVal = document.getElementById("filler-form").value
     cordThic = parseFloat(document.getElementById("thickness-form1").value)
@@ -38,9 +38,9 @@ function LG05A() {
     addPossibilities("resultLG05A()")
 }
 function resultLG05A() {
-    d1Val = parseFloat(document.getElementById("d1-form").value)
-    d2Val = parseFloat(document.getElementById("d2-form").value)
-    d3Val = parseFloat(document.getElementById("d3-form").value)
+    d1Val = parseFloat(document.getElementById("d1-form").value.replace(/,/, "."))
+    d2Val = parseFloat(document.getElementById("d2-form").value.replace(/,/, "."))
+    d3Val = parseFloat(document.getElementById("d3-form").value.replace(/,/, "."))
     materialVal = document.getElementById("metal-form1").value
     coverVal = document.getElementById("filler-form").value
     cordThic = parseFloat(document.getElementById("thickness-form1").value)

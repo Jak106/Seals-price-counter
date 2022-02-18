@@ -325,11 +325,8 @@ function getProfit(price, profit) {
 function makeTableSWG(innerRing, windingRing, outerRing, overhead) {
     let possibilities = getPossibilities()
     let overheadVal = labour_Eff.filter(type => type.id === "overhead")
-    let totalPrice = totalSWGPrice(innerRing, windingRing, outerRing, possibilities.labour, overheadVal[0][overhead])
-    
-    let increment = document.getElementById("shape-button").value
-    console.log(increment)
-    
+    let totalPrice = totalSWGPrice(innerRing, windingRing, outerRing, possibilities.labour, overheadVal[0][overhead]) * document.getElementById("shape-button").value
+
     table.innerHTML = ""
     SWGtable["Material"] = Math.round((innerRing["price"] + windingRing["price"] + outerRing["price"])*100)/100 + " " + possibilities.priceUnit //Sum of all prices of materials
     SWGtable["Labour"] = Math.round((innerRing["labour"] +  windingRing["labour"] + outerRing["labour"])*100)/100 + possibilities.labour + " " + possibilities.priceUnit//Sum of all prices of labour
@@ -349,7 +346,7 @@ function makeTableSWG(innerRing, windingRing, outerRing, overhead) {
 function makeTableCG(mid, cover, overhead) {
     let possibilities = getPossibilities()
     let overheadVal = labour_Eff.filter(type => type.id === "overhead")
-    let totalPrice = totalCGPrice(mid, cover, possibilities.labour, overheadVal[0][overhead])
+    let totalPrice = totalCGPrice(mid, cover, possibilities.labour, overheadVal[0][overhead]) * document.getElementById("shape-button").value
 
     table.innerHTML = ""
     CGtable["Material"] = Math.round((mid.price + cover.price)*100)/100 + " " + possibilities.priceUnit //Sum of all prices of materials

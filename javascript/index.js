@@ -231,9 +231,10 @@ function getPossibilities() {
 //function to add options to shapes
 function addShapesOption(name, value) {
     let img = document.createElement("img")
-    img.src = '../photos/' + name + ".png"
-    img.alt = name
-    img.setAttribute("onclick", `shape(${value})`)
+    img.src = '../images/img' + name + ".png"
+    img.alt = `number: ${name}, increment: ${value}`
+    img.value = value
+    img.setAttribute("onclick", `shape(${String(name)},${value})`)
     document.getElementById("shape-menu").appendChild(img)
 }
 
@@ -243,8 +244,10 @@ function shapesGeneration() {
     shapeDropDown.id = "shape-dropDown"
     inputs[0].appendChild(shapeDropDown)
     
-    let shapeButton = document.createElement("button")
+    let shapeButton = document.createElement("img")
+    shapeButton.src = "../images/img1.png"
     shapeButton.id = "shape-button"
+    shapeButton.value = 1
     shapeButton.innerHTML = "Shapes"
     document.getElementById("shape-dropDown").appendChild(shapeButton)
     
@@ -252,22 +255,37 @@ function shapesGeneration() {
     shapeMenu.id = "shape-menu"
     document.getElementById("shape-dropDown").appendChild(shapeMenu)
 
-    addShapesOption("img1", 1.1)
-    addShapesOption("img2", 1.2)
-    addShapesOption("img3", 1.3)
-    addShapesOption("img4", 1.4)
-    addShapesOption("img5", 1.5)
-    addShapesOption("img6", 1.6)
-    addShapesOption("img7", 1.7)
-    addShapesOption("img8", 1.8)
-    addShapesOption("img9", 1.9)
-    addShapesOption("img10", 2.0)
-    addShapesOption("img11", 2.1)
-    addShapesOption("img12", 2.2)
-    addShapesOption("img13", 2.3)
-    addShapesOption("img14", 2.4)
-    addShapesOption("img15", 2.5)
-    addShapesOption("img16", 2.6)
+    addShapesOption("1", 1)
+    addShapesOption("31", 1.5)
+    addShapesOption("51", 1.8)
+    addShapesOption("52", 1.8)
+    addShapesOption("61", 1.6)
+    addShapesOption("62", 1.7)
+    addShapesOption("71", 2.2)
+    addShapesOption("73", 1.8)
+    addShapesOption("74", 1.9)
+    addShapesOption("75", 2.0)
+    addShapesOption("77", 1.8)
+    addShapesOption("79", 1.9)
+    addShapesOption("81", 2.1)
+    addShapesOption("82", 2.5)
+    addShapesOption("84", 2.2)
+    addShapesOption("85", 2.1)
+    addShapesOption("88", 2.2)
+    addShapesOption("89", 2.4)
+    addShapesOption("91", 2.5)
+    addShapesOption("92", 2.5)
+    addShapesOption("94", 2.1)
+    addShapesOption("96", 2.8)
+    addShapesOption("97", 2.5)
+    addShapesOption("98", 2.3)
+    addShapesOption("99", 2.2)
+    addShapesOption("103", 2.7)
+    addShapesOption("104", 3.0)
+    addShapesOption("105", 2.6)
+    addShapesOption("107", 2.5)
+    addShapesOption("111", 3.1)
+    addShapesOption("112", 3.6)
 }
 
 //two possible result tables
