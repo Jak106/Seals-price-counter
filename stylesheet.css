@@ -325,15 +325,13 @@ td {
     align-items: center;
     justify-content: space-around;
 }
-
 #shape-dropDown {
     margin: auto;
     grid-area: shapes;
-    height: 5vh;
+    height: auto;
     width: 100%;
 }
 #shape-button {
-    margin: auto;
     width: 100%;
     height: auto;
 }
@@ -349,7 +347,6 @@ td {
     height: 10vh;
     border: solid black 1px;
     z-index: 99;
-    background-color: white;
 }
 #shape-dropDown:hover #shape-menu{
     display: flex;
