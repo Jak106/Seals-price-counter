@@ -75,9 +75,8 @@ function getLabour(size, arr) {
 function massFunc(d1, d2, thickness, arr, labourReq) {
     let possibilities = getPossibilities()
     
-    if(possibilities.sizeUnit == "inch") {
-        d1 = d1*0.394
-        d1 = d2*0.394
+    if (possibilities.sizeUnit == "inch") {
+        d1, d2 = d1*0.394, d2*0.394
     }
     
     let area1 = Math.PI*((d1/2)**2) //mm2
@@ -121,8 +120,7 @@ function windingFunc(d2, d3, thickness, materialArr, labourReq, fillerArr) {
     let possibilities = getPossibilities()
     
     if (possibilities.sizeUnit == "inch") {
-        d2 = d2*0.394
-        d3 = d3*0.394
+        d2, d3 = d2*0.394, d3*0.394
     }
     
     let windingWidth = (d3+1-d2)/2 //mm
@@ -148,11 +146,9 @@ function windingFunc(d2, d3, thickness, materialArr, labourReq, fillerArr) {
         weight = weight / 1000 
     }
     if (possibilities.priceUnit == "dollar") {
-        price = price * 1.13
-        labour = labour * 1.13
+        price, labour = price * 1.13, labour * 1.13
     } else if (possibilities.priceUnit == "pound") {
-        price = price * 0.84
-        labour = labour * 0.84
+        price, labour = price * 0.84, labour * 0.84
     }
 
     let partRes = {
@@ -202,6 +198,15 @@ function LG14Math(minor, major, width, thickness, materialArr, fillerArr) {
     let labourArr = labour_Eff.filter(material => material["id"] == "labourD2")
     let labour = getLabour(width, labourArr[0])
     
+    if (possibilities.weightUnit == "kilogram") {
+        weight = weight / 1000 
+    }
+    if (possibilities.priceUnit == "dollar") {
+        price, labour = price * 1.13, labour * 1.13
+    } else if (possibilities.priceUnit == "pound") {
+        price, labour = price * 0.84, labour * 0.84
+    }
+
     let partRes = {
         "width": width,
         "Num of filler wraps": Math.round(fillerWraps*10)/10,
@@ -224,8 +229,7 @@ function corrugatedCover(d1, d2, coversMaterial, thicknessCover) {
     let possibilities = getPossibilities()
 
     if(possibilities.sizeUnit == "inch") {
-        d1 = d1*0.394
-        d2 = d2*0.394
+        d1, d2 = d1*0.394, d2*0.394
     }
 
     let area1 = Math.PI*((d1/2)**2) //mm2
@@ -241,9 +245,9 @@ function corrugatedCover(d1, d2, coversMaterial, thicknessCover) {
         weight = weight / 1000 
     }
     if (possibilities.priceUnit == "dollar") {
-        price = price * 1.13
+        price, labour = price * 1.13, labour * 1.13
     } else if (possibilities.priceUnit == "pound") {
-        price = price * 0.84
+        price, labour = price * 0.84, labour * 0.84
     }
 
     let partRes = {
@@ -267,8 +271,7 @@ function corrugatedMid(d1, d2, cordMaterial, thicknessMetal) {
     let possibilities = getPossibilities()
 
     if(possibilities.sizeUnit == "inch") {
-        d1 = d1*0.394
-        d2 = d2*0.394
+        d1, d2 = d1*0.394, d2*0.394
     }
     
     let area1 = Math.PI*((d1/2)**2) //mm2
