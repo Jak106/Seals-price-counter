@@ -83,10 +83,10 @@ function massFunc(d1, d2, thickness, arr, labourReq) {
     let area2 = Math.PI*((d2/2)**2) //mm2
     let volume = (area2 - area1)*thickness/1000 //cm3
     let weight = volume*arr["density"] //g
-    let price = (weight/1000)*metalSheetsPrice(arr, thickness) * getEFF(d2-d1)
+    let price = (weight/1000)*metalSheetsPrice(arr, thickness) * getEFF(d2)
 
     let labourArr = labour_Eff.filter(material => material["id"] == labourReq)
-    let labour = getLabour(d2-d1, labourArr[0]) //euro
+    let labour = getLabour(d2, labourArr[0]) //euro
     
     if (possibilities.weightUnit == "kilogram") {
         weight = weight / 1000
@@ -106,7 +106,7 @@ function massFunc(d1, d2, thickness, arr, labourReq) {
         "thickness": Math.round(thickness*100)/100,
         "volume": Math.round(volume*100)/100,
         "weight": Math.round(weight*100)/100,
-        "eff": getEFF(d2-d1),
+        "eff": getEFF(d2),
         "price": Math.round(price*100)/100,
         "sheet price": metalSheetsPrice(arr, thickness)
     }
@@ -140,7 +140,7 @@ function windingFunc(d2, d3, thickness, materialArr, labourReq, fillerArr) {
     let price = fillerCost + stripCost
 
     let labourArr = labour_Eff.filter(material => material["id"] == labourReq)
-    let labour = getLabour(windingWidth, labourArr[0])
+    let labour = getLabour(d3, labourArr[0])
     
     if (possibilities.weightUnit == "kilogram") {
         weight = weight / 1000 
@@ -196,7 +196,7 @@ function LG14Math(minor, major, width, thickness, materialArr, fillerArr) {
     let price = fillerCost + stripCost
 
     let labourArr = labour_Eff.filter(material => material["id"] == "labourD2")
-    let labour = getLabour(width, labourArr[0])
+    let labour = getLabour(major, labourArr[0])
     
     if (possibilities.weightUnit == "kilogram") {
         weight = weight / 1000 
@@ -239,7 +239,7 @@ function corrugatedCover(d1, d2, coversMaterial, thicknessCover) {
     let price = weight*coversMaterial["priceKg"]/1000*getEFF(d2-d1)
 
     let labourArr = labour_Eff.filter(material => material["id"] == "corrugatedLabour")
-    let labour = getLabour(d2-d1, labourArr[0])
+    let labour = getLabour(d2, labourArr[0])
     
     if (possibilities.weightUnit == "kilogram") {
         weight = weight / 1000 
@@ -281,7 +281,7 @@ function corrugatedMid(d1, d2, cordMaterial, thicknessMetal) {
     let price = weight*stripPrice(cordMaterial, thicknessMetal)/1000
     
     let labourArr = labour_Eff.filter(material => material["id"] == "labourD2")
-    let labour = getLabour(d2-d1, labourArr[0])
+    let labour = getLabour(d2, labourArr[0])
     
     if (possibilities.weightUnit == "kilogram") {
         weight = weight / 1000 
