@@ -83,7 +83,7 @@ function massFunc(d1, d2, thickness, arr, labourReq) {
     let area2 = Math.PI*((d2/2)**2) //mm2
     let volume = (area2 - area1)*thickness/1000 //cm3
     let weight = volume*arr["density"] //g
-    let price = (weight/1000)*metalSheetsPrice(arr, thickness) * getEFF(d2)
+    let price = (weight/1000) * metalSheetsPrice(arr, thickness) * getEFF(d2)
 
     let labourArr = labour_Eff.filter(material => material["id"] == labourReq)
     let labour = getLabour(d2, labourArr[0]) //euro
@@ -267,6 +267,7 @@ function corrugatedCover(d1, d2, coversMaterial, thicknessCover) {
 
     return new mathResult(volume*2, weight*2, price*2, labour*2)
 }
+
 function corrugatedMid(d1, d2, cordMaterial, thicknessMetal) {
     let possibilities = getPossibilities()
 
@@ -286,6 +287,7 @@ function corrugatedMid(d1, d2, cordMaterial, thicknessMetal) {
     if (possibilities.weightUnit == "kilogram") {
         weight = weight / 1000 
     }
+    
     if (possibilities.priceUnit == "dollar") {
         price, labour = price * 1.13, labour * 1.13
     } else if (possibilities.priceUnit == "pound") {
